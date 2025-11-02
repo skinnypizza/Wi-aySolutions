@@ -1,0 +1,65 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="404 | Página no encontrada">
+  <section class="min-h-[70vh] flex items-center justify-center text-center py-20 bg-background-light dark:bg-background-dark">
+    <div class="container mx-auto px-4 max-w-xl">
+      
+      <span 
+        class="material-symbols-outlined text-9xl text-primary opacity-0 animate-[fade-in-up_1s_ease-out_forwards]"
+        style="animation-delay: 0.1s;"
+      >
+        error
+      </span>
+
+      <div class="relative inline-block mt-4">
+        <h1 
+          class="text-8xl font-display font-extrabold text-text-light dark:text-text-dark opacity-0 animate-[fade-in-up_1s_ease-out_forwards]"
+          style="animation-delay: 0.2s;"
+        >
+          404
+        </h1>
+        <div class="absolute inset-0 flex items-center justify-center transform -rotate-45 z-[-1] opacity-0 animate-[fade-in-up_1s_ease-out_forwards]" style="animation-delay: 0.25s;">
+            <div class="w-20 h-20 bg-primary/10 rounded-lg"></div>
+        </div>
+      </div>
+      
+      <p 
+        class="text-2xl mt-6 font-display font-medium text-text-light/90 dark:text-text-dark/90 opacity-0 animate-[fade-in-up_1s_ease-out_forwards]"
+        style="animation-delay: 0.3s;"
+      >
+        Vaya, la innovación nos llevó demasiado lejos.
+      </p>
+      
+      <p 
+        class="mt-4 text-text-light/70 dark:text-text-dark/70 opacity-0 animate-[fade-in-up_1s_ease-out_forwards]"
+        style="animation-delay: 0.4s;"
+      >
+        La página que buscas no existe. Quizá la automatización la ha optimizado fuera de nuestra vista.
+      </p>
+      
+      <a 
+        href="/" 
+        class="mt-8 inline-flex h-12 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary px-6 text-base font-bold leading-normal tracking-[0.015em] text-background-light hover:bg-opacity-90 transition-all hover:scale-105 transform opacity-0 animate-[fade-in-up_1s_ease-out_forwards]"
+        style="animation-delay: 0.5s;"
+      >
+        Volver al Inicio (Wiñay)
+      </a>
+      
+    </div>
+  </section>
+</Layout>
+
+<style>
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

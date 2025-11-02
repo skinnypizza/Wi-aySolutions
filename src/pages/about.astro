@@ -1,0 +1,68 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FinalCTA from '../components/sections/FinalCTA.astro';
+// Reemplaza con una imagen real en tu carpeta /src/assets
+import teamImage from '../assets/team-placeholder.jpg'; 
+import { Image } from 'astro:assets';
+---
+
+<Layout title="Nosotros | Wiñay Tech">
+  <section class="py-20 md:py-32">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+        <div class="flex flex-col gap-6 animate-fade-in-up" style="--anim-delay: 0.1s;">
+          <h1 class="text-4xl md:text-5xl font-display font-bold">
+            Wiñay: Crecimiento con Raíces Sólidas
+          </h1>
+          <p class="text-lg font-normal leading-relaxed text-text-light/80 dark:text-text-dark/80">
+            Wiñay en quechua significa crecer, florecer, perdurar en el tiempo. Nuestra misión es honrar este concepto, fusionando la sabiduría ancestral con la innovación tecnológica. Creamos software con raíces y visión.
+          </p>
+          
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 mt-4">
+            <div class="flex flex-col gap-3 rounded-lg border border-primary/20 bg-background-light dark:bg-contrast-accent/50 p-4 transition-shadow hover:shadow-xl">
+              <span class="material-symbols-outlined text-3xl text-primary">spa</span>
+              <div>
+                <h3 class="font-semibold font-display">Nuestra Filosofía</h3>
+                <p class="text-sm text-text-light/70 dark:text-text-dark/70">
+                  Inspirados en la geometría andina, construimos soluciones estructuradas y modulares que perduran.
+                </p>
+              </div>
+            </div>
+            <div class="flex flex-col gap-3 rounded-lg border border-primary/20 bg-background-light dark:bg-contrast-accent/50 p-4 transition-shadow hover:shadow-xl">
+              <span class="material-symbols-outlined text-3xl text-primary">rocket_launch</span>
+              <div>
+                <h3 class="font-semibold font-display">Visión Global</h3>
+                <p class="text-sm text-text-light/70 dark:text-text-dark/70">
+                  Somos una empresa boliviana con la visión de llevar soluciones de vanguardia a nivel global.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="relative flex items-center justify-center animate-fade-in-up" style="--anim-delay: 0.3s;">
+          <Image 
+            class="relative w-full max-w-md rounded-xl shadow-lg border border-text-light/10" 
+            alt="Equipo de Wiñay Tech colaborando en un entorno moderno." 
+            src={teamImage}
+            width={600}
+            height={400}
+            format="webp"
+            quality={80}
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FinalCTA />
+</Layout>
+
+<style>
+  /* Se repite la animación para garantizar su funcionamiento en esta página */
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out forwards;
+    animation-delay: var(--anim-delay, 0s);
+    opacity: 0;
+  }
+</style>

@@ -1,0 +1,73 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Se puede importar el Footer si no se quiere usar el FinalCTA
+// import Footer from '../components/Footer.astro'; 
+---
+
+<Layout title="Contacto | Wiñay Tech">
+  <section class="py-20 md:py-32 bg-background-light dark:bg-contrast-accent">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center animate-fade-in-up" style="--anim-delay: 0.1s;">
+        <h1 class="text-4xl md:text-5xl font-display font-bold">
+          Conversemos de Crecimiento
+        </h1>
+        <p class="mt-4 text-lg text-text-light/80 dark:text-text-dark/80">
+          ¿Listo para evolucionar, automatizar, Wiñay? Cuéntanos sobre tu proyecto y te ayudaremos a llevarlo al siguiente nivel digital.
+        </p>
+      </div>
+
+      <div class="mt-12 max-w-2xl mx-auto p-8 rounded-xl shadow-2xl bg-white dark:bg-background-dark border border-text-light/10 animate-fade-in-up" style="--anim-delay: 0.3s;">
+        
+        <form name="contact" method="POST" data-netlify="true" class="space-y-6">
+          <input type="hidden" name="form-name" value="contact" /> 
+
+          <div>
+            <label for="name" class="block text-sm font-medium text-text-light dark:text-text-dark">Nombre Completo</label>
+            <input type="text" id="name" name="name" required class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-primary focus:ring-primary bg-background-light dark:bg-contrast-accent border-text-light/20 text-text-light dark:text-text-dark p-3" placeholder="Tu Nombre">
+          </div>
+
+          <div>
+            <label for="email" class="block text-sm font-medium text-text-light dark:text-text-dark">Correo Electrónico</label>
+            <input type="email" id="email" name="email" required class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-primary focus:ring-primary bg-background-light dark:bg-contrast-accent border-text-light/20 text-text-light dark:text-text-dark p-3" placeholder="ejemplo@empresa.com">
+          </div>
+          
+          <div>
+            <label for="project" class="block text-sm font-medium text-text-light dark:text-text-dark">Servicio de Interés</label>
+            <select id="project" name="project" required class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-primary focus:ring-primary bg-background-light dark:bg-contrast-accent border-text-light/20 text-text-light dark:text-text-dark p-3">
+              <option value="">Selecciona un servicio</option>
+              <option value="Desarrollo Web">Desarrollo Web / Landing Page</option>
+              <option value="Automatizacion">Automatización e Integraciones</option>
+              <option value="Movil">Desarrollo Móvil</option>
+              <option value="Branding">Diseño y Branding Digital</option>
+              <option value="Otro">Consultoría y Soporte Técnico</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="message" class="block text-sm font-medium text-text-light dark:text-text-dark">Cuéntanos sobre tu proyecto</label>
+            <textarea id="message" name="message" rows="4" required class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-primary focus:ring-primary bg-background-light dark:bg-contrast-accent border-text-light/20 text-text-light dark:text-text-dark p-3" placeholder="Describe brevemente lo que necesitas..."></textarea>
+          </div>
+
+          <button type="submit" class="w-full flex h-12 cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary px-6 text-base font-bold leading-normal tracking-[0.015em] text-background-light hover:bg-opacity-90 transition-all hover:scale-[1.01] transform">
+            Enviar Solicitud de Consulta
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+  
+  <footer class="py-8 bg-background-dark dark:bg-contrast-accent border-t border-text-light/10">
+    <div class="container mx-auto px-4 text-center text-sm text-text-dark/70">
+        © {new Date().getFullYear()} Wiñay Tech. Software con Raíces y Visión.
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out forwards;
+    animation-delay: var(--anim-delay, 0s);
+    opacity: 0;
+  }
+</style>

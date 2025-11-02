@@ -1,0 +1,56 @@
+---
+import { Image } from 'astro:assets';
+// Placeholder: Reemplaza esto con una imagen real en tu carpeta /public o /src/assets
+import heroImage from '../../assets/hero-placeholder.jpg'; 
+---
+
+<section class="py-20 md:py-32 overflow-hidden">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+      
+      <div class="flex flex-col gap-6 text-center lg:text-left">
+        <div class="flex flex-col gap-4 animate-fade-in-up" style="--anim-delay: 0.1s;">
+          <h1 class="text-4xl font-semibold leading-tight tracking-tight md:text-6xl font-display">
+            Tecnología que crece contigo
+          </h1>
+          <p class="text-lg font-normal leading-relaxed text-text-light/80 dark:text-text-dark/80 font-body">
+            Fusionamos nuestras raíces ancestrales con tecnología de punta para crear soluciones que evolucionan con tu negocio.
+          </p>
+        </div>
+        <div 
+          class="flex justify-center lg:justify-start animate-fade-in-up" 
+          style="--anim-delay: 0.2s;"
+        >
+          <a href="/services" class="flex h-12 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary px-5 text-base font-bold leading-normal tracking-[0.015em] text-background-light hover:bg-opacity-90 transition-all hover:scale-105 transform">
+            <span class="truncate">Conoce nuestras soluciones</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="relative flex items-center justify-center animate-fade-in-up" style="--anim-delay: 0.3s;">
+        <div class="absolute inset-0 bg-primary/10 rounded-full blur-3xl z-0"></div>
+        <Image 
+          class="relative w-full max-w-md rounded-xl shadow-lg z-10" 
+          alt="Imagen abstracta de tecnología y crecimiento" 
+          src={heroImage}
+          width={600}
+          height={600}
+          format="webp"
+          quality={80}
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Esta clase aplica la animación
+    Hemos añadido "animation-fill-mode: forwards" para que se mantenga
+    en su estado final.
+  */
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out forwards;
+    animation-delay: var(--anim-delay, 0s);
+    opacity: 0; /* Inicia invisible */
+  }
+</style>

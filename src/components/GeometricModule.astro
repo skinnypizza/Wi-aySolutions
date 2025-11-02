@@ -1,0 +1,53 @@
+---
+interface Props {
+  // Datos que recibe el componente
+  title: string;
+  description: string;
+  icon: string; // Nombre del icono de Material Symbols
+  index: number; // Para animaciones con delay
+}
+
+const { title, description, icon, index } = Astro.props;
+
+// Se usa el índice para alternar el estilo de fondo geométrico
+// 0, 4, 8... tendrá un rombo
+// 1, 5, 9... tendrá un círculo (espiral)
+// 2, 6, 10... tendrá un patrón de líneas (greca abstracta)
+
+const moduleStyle = index % 3;
+
+// Clases CSS para las formas geométricas
+let geometricClass = '';
+if (moduleStyle === 0) {
+  geometricClass = 'before:content-[""] before:absolute before:-top-4 before:-left-4 before:w-16 before:h-16 before:rotate-45 before:bg-primary/10 before:rounded-lg'; // Rombo
+} else if (moduleStyle === 1) {
+  geometricClass = 'before:content-[""] before:absolute before:-top-6 before:right-0 before:w-16 before:h-16 before:bg-primary/10 before:rounded-full'; // Círculo/Espirial
+} else {
+  geometricClass = 'before:content-[""] before:absolute before:-bottom-4 before:-right-4 before:w-20 before:h-4 before:bg-primary/20 before:shadow-lg'; // Greca/Líneas
+}
+---
+
+<div 
+  class={`relative flex flex-col gap-4 p-6 rounded-xl border border-text-light/10 dark:border-text-dark/10 bg-background-light dark:bg-background-dark shadow-md overflow-hidden transition-all duration-350 hover:shadow-xl hover:scale-[1.03] transform animate-fade-in-up ${geometricClass}`}
+  style={`--anim-delay: ${index * 0.15}s;`}
+>
+  <div class="relative z-10">
+    <span class="material-symbols-outlined text-4xl text-primary mb-2">
+      {icon}
+    </span>
+    <h3 class="text-xl font-display font-semibold mb-1">{title}</h3>
+    <p class="text-sm font-body text-text-light/70 dark:text-text-dark/70">
+      {description}
+    </p>
+  </div>
+
+</div>
+
+<style>
+  /* Reutilizamos la animación de entrada */
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out forwards;
+    animation-delay: var(--anim-delay, 0s);
+    opacity: 0;
+  }
+</style>

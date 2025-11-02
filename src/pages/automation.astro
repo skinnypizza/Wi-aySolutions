@@ -1,0 +1,83 @@
+
+---
+import Layout from '../layouts/Layout.astro';
+import FinalCTA from '../components/sections/FinalCTA.astro';
+import GeometricModule from '../components/GeometricModule.astro';
+
+const automationFeatures = [
+  {
+    title: "Automatización de Procesos Empresariales",
+    description: "Implementamos flujos de trabajo con no-code/low-code para gestionar ventas, correos, y redes sociales de forma autónoma.",
+    icon: "swap_horiz"
+  },
+  {
+    title: "Integración de Sistemas a la Medida",
+    description: "Conectamos plataformas dispares (CRM, ERP, Google Sheets, WhatsApp) para una operación unificada.",
+    icon: "hub"
+  },
+  {
+    title: "IoT y Control de Hardware",
+    description: "Desarrollamos la conexión entre software empresarial y dispositivos físicos (sensores, ESP32, cámaras IP).",
+    icon: "settings_input_hdmi"
+  },
+  {
+    title: "Bots y Asistentes Virtuales",
+    description: "Creamos bots para atención al cliente y asistentes internos que se encargan de tareas repetitivas y soporte.",
+    icon: "smart_toy"
+  },
+  {
+    title: "Monitoreo en Tiempo Real",
+    description: "Desarrollo de paneles web que ofrecen control remoto y visualización de datos de tus sistemas o hardware.",
+    icon: "dashboard"
+  },
+  {
+    title: "Seguridad y Respaldo",
+    description: "Garantizamos la seguridad de las bases de datos (MySQL, MongoDB) y los flujos de información automatizados.",
+    icon: "security"
+  },
+];
+---
+
+<Layout title="Automatización | Wiñay Tech">
+  <section class="py-20 md:py-32 bg-background-light dark:bg-background-dark">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-display font-bold animate-fade-in-up" style="--anim-delay: 0.1s;">
+        Evoluciona, Automatiza, Wiñay
+      </h1>
+      <p class="mt-4 max-w-3xl mx-auto text-lg text-text-light/80 dark:text-text-dark/80 animate-fade-in-up" style="--anim-delay: 0.2s;">
+        Optimizamos tus procesos de negocio, permitiendo que tu equipo se concentre en el crecimiento y la estrategia, no en tareas repetitivas.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24 bg-contrast-accent dark:bg-contrast-accent/50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-display font-semibold text-center mb-12">
+        Tecnología de Vanguardia y Eficiencia Máxima
+      </h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {automationFeatures.map((feature, index) => (
+          <GeometricModule 
+            title={feature.title} 
+            description={feature.description} 
+            icon={feature.icon} 
+            index={index} 
+          />
+        ))}
+      </div>
+      
+    </div>
+  </section>
+  
+  <FinalCTA />
+</Layout>
+
+<style>
+  /* Reutilizamos la animación de entrada */
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out forwards;
+    animation-delay: var(--anim-delay, 0s);
+    opacity: 0;
+  }
+</style>

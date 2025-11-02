@@ -1,0 +1,72 @@
+---
+// Define la pila tecnológica basada en tu moodboard
+const techStack = [
+    { name: "Node.js", icon: "code", category: "Backend" },
+    { name: "Laravel", icon: "data_object", category: "Backend" },
+    { name: "Kotlin", icon: "smartphone", category: "Mobile" },
+    { name: "MySQL", icon: "database", category: "Database" },
+    { name: "MongoDB", icon: "storage", category: "Database" },
+    { name: "SQL Server", icon: "dns", category: "Database" },
+    { name: "ESP32", icon: "memory", category: "IoT" }, // Para control de hardware [cite: 47, 62]
+    { name: "MQTT", icon: "cell_tower", category: "IoT" }, // Para IoT y control [cite: 47]
+    { name: "Shopify", icon: "shopping_bag", category: "E-commerce" },
+    { name: "WooCommerce", icon: "shopping_cart", category: "E-commerce" },
+    { name: "Astro", icon: "rocket", category: "Frontend" },
+    { name: "React", icon: "terminal", category: "Frontend/PWA" },
+];
+
+interface Props {
+    title?: string;
+}
+
+const { title = "Nuestra Pila Tecnológica" } = Astro.props;
+---
+
+<section class="py-12 md:py-20 bg-background-light dark:bg-background-dark/80 overflow-hidden">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-display font-bold text-center mb-12 animate-fade-in-up" style="--anim-delay: 0.1s;">
+            {title}
+        </h2>
+
+        <div 
+            class="flex gap-6 overflow-x-scroll snap-x snap-mandatory pb-4 lg:grid lg:grid-cols-6 xl:grid-cols-6 lg:overflow-x-hidden lg:justify-items-center"
+        >
+            {techStack.map((tech, index) => (
+                <div 
+                    class="flex-shrink-0 w-44 lg:w-auto p-4 flex flex-col items-center justify-center rounded-xl bg-white dark:bg-contrast-accent shadow-lg border-b-4 border-primary/50 snap-start transition-all duration-300 hover:scale-[1.05] animate-fade-in-up"
+                    style={`--anim-delay: ${0.2 + index * 0.1}s;`}
+                >
+                    <span class="material-symbols-outlined text-4xl text-primary">
+                        {tech.icon}
+                    </span>
+                    <h3 class="mt-2 text-lg font-semibold font-body text-text-light dark:text-text-dark">{tech.name}</h3>
+                    <p class="text-xs text-text-light/60 dark:text-text-dark/60 mt-1">{tech.category}</p>
+                </div>
+            ))}
+        </div>
+        
+        <p class="text-center text-sm mt-8 text-text-light/70 dark:text-text-dark/70 animate-fade-in-up" style="--anim-delay: 1.5s;">
+            "Desarrollo backend escalable en Node.js o Laravel." [cite: 60]
+        </p>
+
+    </div>
+</section>
+
+<style>
+  /* Ocultar barra de desplazamiento en navegadores Webkit (Chrome, Safari) */
+  .overflow-x-scroll::-webkit-scrollbar {
+    display: none;
+  }
+  /* Para IE y Edge */
+  .overflow-x-scroll {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  /* Reutilizamos la animación de entrada */
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out forwards;
+    animation-delay: var(--anim-delay, 0s);
+    opacity: 0;
+  }
+</style>
