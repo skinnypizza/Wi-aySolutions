@@ -1,24 +1,35 @@
 ---
-// Logo SVG (tomado de tu prototipo)
-const logo = `<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M42.1739 20.1739L27.8261 5.82609C29.1366 7.13663 28.3989 10.1876 26.2002 13.7654C24.8538 15.9564 22.9595 18.3449 20.6522 20.6522C18.3449 22.9595 15.9564 24.8538 13.7654 26.2002C10.1876 28.3989 7.13663 29.1366 5.82609 27.8261L20.1739 42.1739C21.4845 43.4845 24.5355 42.7467 28.1133 40.548C30.3042 39.2016 32.6927 37.3073 35 35C37.3073 32.6927 39.2016 30.3042 40.548 28.1133C42.7467 24.5355 43.4845 21.4845 42.1739 20.1739Z" fill="currentColor"></path></svg>`;
+// 1. Importaciones: Usamos Image para optimizar el logo
+import { Image } from 'astro:assets'; 
+import logoImage from '../assets/logo.png'; // <--- Confirma que la ruta es correcta
 
+// 2. Definición de enlaces
 const navLinks = [
   { href: "/services", text: "Servicios" },
   { href: "/about", text: "Nosotros" },
-  { href: "/automation", text: "Automatización" }, // Puedes crear esta página luego
+  { href: "/automation", text: "Automatización" }, 
 ];
 ---
 
 <header 
+  // Alpine.js para controlar el estado del menú móvil
   x-data="{ open: false }" 
   @click.away="open = false"
+  // Estilos de cabecera: Sticky, fondo semi-transparente con blur
   class="sticky top-0 z-50 w-full bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm"
 >
   <div class="container mx-auto px-4">
     <div class="flex items-center justify-between whitespace-nowrap border-b border-solid border-text-light/10 py-4">
       
       <a href="/" class="flex items-center gap-3 group">
-        <div class="size-8 text-primary group-hover:scale-110 transition-transform" set:html={logo} />
+        <Image 
+          src={logoImage} 
+          alt="Logo Wiñay Tech"
+          width={32}
+          height={32}
+          class="size-8 text-primary group-hover:scale-110 transition-transform" 
+        />
+        
         <h2 class="text-xl font-semibold leading-tight tracking-[-0.015em] font-brand">
           Wiñay Tech
         </h2>
@@ -26,7 +37,10 @@ const navLinks = [
 
       <nav class="hidden items-center gap-8 md:flex">
         {navLinks.map(link => (
-          <a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href={link.href}>
+          <a 
+            class="text-sm font-medium leading-normal hover:text-primary transition-colors" 
+            href={link.href}
+          >
             {link.text}
           </a>
         ))}
@@ -64,11 +78,17 @@ const navLinks = [
   >
     <nav class="flex flex-col p-4 gap-4">
       {navLinks.map(link => (
-        <a class="text-base font-medium leading-normal hover:text-primary transition-colors px-2 py-1" href={link.href}>
+        <a 
+          
+          @click.prevent="open = false; window.location.href = $event.target.href"
+          class="text-base font-medium leading-normal hover:text-primary transition-colors px-2 py-1" 
+          href={link.href}
+        >
           {link.text}
         </a>
       ))}
       <a 
+        @click.prevent="open = false; window.location.href = $event.target.href"
         href="/contact" 
         class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-11 px-4 bg-primary text-background-light text-base font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-opacity mt-2"
       >
