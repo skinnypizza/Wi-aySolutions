@@ -19,40 +19,103 @@ import Layout from '../layouts/Layout.astro';
 
       <div class="mt-12 max-w-2xl mx-auto p-8 rounded-xl shadow-2xl bg-white dark:bg-background-dark border border-text-light/10 animate-fade-in-up" style="--anim-delay: 0.3s;">
         
-        <form name="contact" method="POST" data-netlify="true" class="space-y-6">
-          <input type="hidden" name="form-name" value="contact" /> 
+        <form 
+        name="contact"
+        class="space-y-6"
+        x-data="{
+            formData: {
+                name: '',
+                email: '',
+                project: '',
+                message: ''
+            },
+            loading: false,
+            success: false,
+            error: '',
+            async submitForm() {
+                this.loading = true;
+                this.error = '';
+                try {
+                    const response = await fetch('https://skinnypizza.app.n8n.cloud/webhook-test/winay-lead', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(this.formData)
+                    });
 
-          <div>
-            <label for="name" class="block text-sm font-medium text-text-light dark:text-text-dark">Nombre Completo</label>
-            <input type="text" id="name" name="name" required class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-primary focus:ring-primary bg-background-light dark:bg-contrast-accent border-text-light/20 text-text-light dark:text-text-dark p-3" placeholder="Tu Nombre">
-          </div>
+                    if (!response.ok) {
+                        // Intenta obtener un mensaje de error más específico del cuerpo de la respuesta
+                        let errorData;
+                        try {
+                            errorData = await response.json();
+                        } catch (e) {
+                            // Si el cuerpo del error no es JSON, usa el texto de estado de la respuesta
+                            throw new Error(response.statusText || 'Error en el servidor.');
+                        }
+                        // Lanza un error con el mensaje del servidor si está disponible
+                        throw new Error(errorData.message || 'Algo salió mal. Por favor, inténtalo de nuevo.');
+                    }
 
-          <div>
-            <label for="email" class="block text-sm font-medium text-text-light dark:text-text-dark">Correo Electrónico</label>
-            <input type="email" id="email" name="email" required class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-primary focus:ring-primary bg-background-light dark:bg-contrast-accent border-text-light/20 text-text-light dark:text-text-dark p-3" placeholder="ejemplo@empresa.com">
-          </div>
-          
-          <div>
-            <label for="project" class="block text-sm font-medium text-text-light dark:text-text-dark">Servicio de Interés</label>
-            <select id="project" name="project" required class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-primary focus:ring-primary bg-background-light dark:bg-contrast-accent border-text-light/20 text-text-light dark:text-text-dark p-3">
-              <option value="">Selecciona un servicio</option>
-              <option value="Desarrollo Web">Desarrollo Web / Landing Page</option>
-              <option value="Automatizacion">Automatización e Integraciones</option>
-              <option value="Movil">Desarrollo Móvil</option>
-              <option value="Branding">Diseño y Branding Digital</option>
-              <option value="Otro">Consultoría y Soporte Técnico</option>
-            </select>
-          </div>
+                    this.success = true;
+                    this.formData = { name: '', email: '', project: '', message: '' };
 
-          <div>
-            <label for="message" class="block text-sm font-medium text-text-light dark:text-text-dark">Cuéntanos sobre tu proyecto</label>
-            <textarea id="message" name="message" rows="4" required class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-primary focus:ring-primary bg-background-light dark:bg-contrast-accent border-text-light/20 text-text-light dark:text-text-dark p-3" placeholder="Describe brevemente lo que necesitas..."></textarea>
-          </div>
+                } catch (error) {
+                    this.error = error.message;
+                } finally {
+                    this.loading = false;
+                }
+            }
+        }"
+        @submit.prevent="submitForm"
+    >
 
-          <button type="submit" class="w-full flex h-12 cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary px-6 text-base font-bold leading-normal tracking-[0.015em] text-background-light hover:bg-opacity-90 transition-all hover:scale-[1.01] transform">
-            Enviar Solicitud de Consulta
-          </button>
-        </form>
+    <template x-if="success">
+        <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
+            ¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.
+        </div>
+    </template>
+
+    <template x-if="error">
+        <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+            <span x-text="error"></span>
+        </div>
+    </template>
+
+    <div x-show="!success">
+        <div class="space-y-6">
+            <div>
+                <label for="name" class="block text-sm font-medium text-text-light dark:text-text-dark">Nombre Completo</label>
+                <input type="text" id="name" name="name" x-model="formData.name" required class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-primary focus:ring-primary bg-background-light dark:bg-contrast-accent border-text-light/20 text-text-light dark:text-text-dark p-3" placeholder="Tu Nombre">
+            </div>
+
+            <div>
+                <label for="email" class="block text-sm font-medium text-text-light dark:text-text-dark">Correo Electrónico</label>
+                <input type="email" id="email" name="email" x-model="formData.email" required class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-primary focus:ring-primary bg-background-light dark:bg-contrast-accent border-text-light/20 text-text-light dark:text-text-dark p-3" placeholder="ejemplo@empresa.com">
+            </div>
+            
+            <div>
+                <label for="project" class="block text-sm font-medium text-text-light dark:text-text-dark">Servicio de Interés</label>
+                <select id="project" name="project" x-model="formData.project" required class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-primary focus:ring-primary bg-background-light dark:bg-contrast-accent border-text-light/20 text-text-light dark:text-text-dark p-3">
+                    <option value="">Selecciona un servicio</option>
+                    <option value="Desarrollo Web">Desarrollo Web / Landing Page</option>
+                    <option value="Automatizacion">Automatización e Integraciones</option>
+                    <option value="Movil">Desarrollo Móvil</option>
+                    <option value="Branding">Diseño y Branding Digital</option>
+                    <option value="Otro">Consultoría y Soporte Técnico</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="message" class="block text-sm font-medium text-text-light dark:text-text-dark">Cuéntanos sobre tu proyecto</label>
+                <textarea id="message" name="message" rows="4" x-model="formData.message" required class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-primary focus:ring-primary bg-background-light dark:bg-contrast-accent border-text-light/20 text-text-light dark:text-text-dark p-3" placeholder="Describe brevemente lo que necesitas..."></textarea>
+            </div>
+
+            <button type="submit" :disabled="loading" class="w-full flex h-12 cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary px-6 text-base font-bold leading-normal tracking-[0.015em] text-background-light hover:bg-opacity-90 transition-all hover:scale-[1.01] transform disabled:opacity-50 disabled:cursor-not-allowed">
+                <span x-show="!loading">Enviar Solicitud de Consulta</span>
+                <span x-show="loading">Enviando...</span>
+            </button>
+        </div>
+    </div>
+</form>
       </div>
     </div>
   </section>
