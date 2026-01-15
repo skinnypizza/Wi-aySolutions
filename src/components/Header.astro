@@ -1,13 +1,13 @@
 ---
-import { Image } from 'astro:assets';
-import logoImage from '../assets/logo.png';
-import Button from './Button.astro';
-import Icon from './Icon.astro';
+import { Image } from "astro:assets";
+import logoImage from "../assets/logo.png";
+import Button from "./Button.astro";
+import Icon from "./Icon.astro";
 
 const navLinks = [
-	{ href: '/services', text: 'Servicios' },
-	{ href: '/about', text: 'Nosotros' },
-	{ href: '/automation', text: 'Automatización' },
+	{ href: "/services", text: "Nuestros Planes" },
+	{ href: "/about", text: "Quiénes Somos" },
+	{ href: "/contact", text: "Contacto" },
 ];
 ---
 
@@ -26,20 +26,26 @@ const navLinks = [
 					alt="Logo Wiñay Tech"
 					width={32}
 					height={32}
-					class="size-8 text-primary-DEFAULT group-hover:scale-110 transition-transform"
+					class="size-8 text-primary group-hover:scale-110 transition-transform"
 				/>
-				<h2 class="text-xl font-semibold leading-tight tracking-[-0.015em] font-brand">Wiñay Tech</h2>
+				<h2
+					class="text-xl font-semibold leading-tight tracking-[-0.015em] font-brand"
+				>
+					Wiñay Tech
+				</h2>
 			</a>
 
 			<nav class="hidden items-center gap-8 md:flex">
-				{navLinks.map((link) => (
-					<a
-						class="text-sm font-medium leading-normal text-text-light dark:text-text-dark hover:text-primary-DEFAULT transition-colors"
-						href={link.href}
-					>
-						{link.text}
-					</a>
-				))}
+				{
+					navLinks.map((link) => (
+						<a
+							class="text-sm font-medium leading-normal text-text-light dark:text-text-dark hover:text-primary transition-colors"
+							href={link.href}
+						>
+							{link.text}
+						</a>
+					))
+				}
 				<Button href="/contact" size="sm">Contáctanos</Button>
 			</nav>
 
@@ -51,7 +57,7 @@ const navLinks = [
 					aria-label="Abrir menú"
 				>
 					<Icon name="menu" isMaterial x-show="!open" />
-					<Icon name="close" isMaterial x-show="open" style="display: none;" />
+					<Icon name="close" isMaterial x-show="open" />
 				</button>
 			</div>
 		</div>
@@ -69,15 +75,19 @@ const navLinks = [
 		class="md:hidden absolute w-full bg-background-light dark:bg-background-dark shadow-lg border-b border-accent-light dark:border-accent-dark"
 	>
 		<nav class="flex flex-col p-4 gap-4">
-			{navLinks.map((link) => (
-				<a
-					class="text-base font-medium leading-normal hover:text-primary-DEFAULT transition-colors px-2 py-1"
-					href={link.href}
-				>
-					{link.text}
-				</a>
-			))}
-			<Button href="/contact" class="w-full mt-2">Contáctanos</Button>
+			{
+				navLinks.map((link) => (
+					<a
+						class="text-base font-medium leading-normal hover:text-primary transition-colors px-2 py-1"
+						href={link.href}
+					>
+						{link.text}
+					</a>
+				))
+			}
+			<Button href="/contact" class="w-full mt-2"
+				>Solicitar Cotización</Button
+			>
 		</nav>
 	</div>
 </header>

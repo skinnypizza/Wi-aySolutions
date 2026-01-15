@@ -1,0 +1,60 @@
+---
+import Icon from "../Icon.astro";
+
+const problems = [
+    {
+        title: "Sitios web que no venden",
+        description:
+            "Muchos negocios tienen una web que se ve bien, pero no atrae clientes reales. Nosotros nos enfocamos en resultados.",
+    },
+    {
+        title: "Tecnología complicada",
+        description:
+            "Te hablamos sin tecnicismos innecesarios. Queremos que entiendas qué estás pagando y por qué lo necesitas.",
+    },
+    {
+        title: "Falta de soporte local",
+        description:
+            "Estamos en Bolivia. Entendemos tu mercado y estamos a un mensaje de WhatsApp de distancia para apoyarte.",
+    },
+];
+---
+
+<section class="py-16 md:py-24 bg-white dark:bg-background-dark">
+    <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto text-center mb-16">
+            <h2
+                class="text-3xl md:text-5xl font-bold font-display text-text-light dark:text-text-dark mb-6"
+            >
+                ¿Tu negocio está listo para el siguiente nivel <span
+                    class="text-primary">pero tu web te detiene?</span
+                >
+            </h2>
+            <p
+                class="text-lg text-text-light/70 dark:text-text-dark/70 font-body"
+            >
+                Sabemos que en Bolivia el boca a boca es clave, pero una
+                presencia digital sólida es lo que te permite escalar y generar
+                confianza antes del primer contacto.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {
+                problems.map((problem) => (
+                    <div class="p-8 rounded-2xl bg-background-light dark:bg-accent-dark border border-accent-light dark:border-primary/20 shadow-sm">
+                        <div class="size-12 rounded-full bg-primary/10 flex items-center justify-center mb-6 text-primary">
+                            <Icon name="warning" isMaterial class="text-2xl" />
+                        </div>
+                        <h3 class="text-xl font-bold font-display mb-3 text-text-light dark:text-text-dark">
+                            {problem.title}
+                        </h3>
+                        <p class="text-text-light/70 dark:text-text-dark/70 font-body leading-relaxed">
+                            {problem.description}
+                        </p>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>

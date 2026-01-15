@@ -1,98 +1,209 @@
 ---
 // Importaciones
-import Layout from '../layouts/Layout.astro';
-import FinalCTA from '../components/sections/FinalCTA.astro';
-import TechCarousel from '../components/TechCarousel.astro'; // <-- NUEVA IMPORTACIÓN
+import Layout from "../layouts/Layout.astro";
+import FinalCTA from "../components/sections/FinalCTA.astro";
+import TechCarousel from "../components/TechCarousel.astro";
+import Button from "../components/Button.astro";
 
-const serviceGroups = [
+const basePlans = [
   {
-    title: "Desarrollo Web",
-    icon: "laptop_windows",
-    description: "Desde Landing Pages optimizadas hasta Sistemas Web Empresariales y APIs REST.",
-    services: [
-      "Landing Pages personalizadas y optimizadas para campañas",
-      "Sistemas Web Empresariales (CRM, ERP, Inventario)",
-      "E-commerce y tiendas online personalizadas",
-      "Aplicaciones Web Progresivas (PWA)",
-      "APIs REST y sistemas integrados",
-    ]
+    title: "Plan Landing Page",
+    focus:
+      "Ideal para emprendedores y negocios que quieren presencia rápida y efectiva.",
+    description:
+      "Una sola página con toda la información clave, diseñada para cargar rápido y convertir visitantes en clientes.",
+    features: [
+      "Una sola página (Landing Page)",
+      "Diseño responsivo (Adaptado a móviles)",
+      "Hosting y dominio por 1 año incluido",
+      "SEO Básico (Configuración para Google)",
+      "Botón directo a WhatsApp",
+    ],
+    cta: "Cotiza tu Landing Page",
+    icon: "rocket_launch",
   },
   {
-    title: "Automatización e Integraciones",
-    icon: "robot_2",
-    description: "Conectamos tu software y hardware para optimizar flujos de trabajo, eliminando tareas repetitivas.",
-    services: [
-      "Automatización de procesos empresariales (ventas, correos, redes sociales)",
-      "Integración de sistemas (ej. Google Sheets con WhatsApp)",
-      "Bots y asistentes automatizados para atención al cliente",
-      "Conexiones entre software empresarial y hardware IoT (sensores, ESP32)",
-    ]
+    title: "Plan Web Corporativa",
+    focus: "Pensado para empresas que buscan una imagen sólida y profesional.",
+    description:
+      "Web multi-página con secciones independientes para detallar cada aspecto de tu empresa o servicios.",
+    features: [
+      "Múltiples secciones (Inicio, Nosotros, Servicios, etc.)",
+      "Diseño profesional avanzado",
+      "Hosting y dominio por 1 año incluido",
+      "SEO Básico (Configuración para Google)",
+      "Integración con redes sociales",
+    ],
+    cta: "Cotiza tu Web Corporativa",
+    icon: "corporate_fare",
+  },
+];
+
+const additionalServices = [
+  {
+    title: "Pack Contacto Pro",
+    description:
+      "Formulario de contacto personalizado + botón directo a WhatsApp flotante.",
+    icon: "chat",
   },
   {
-    title: "Desarrollo Móvil",
-    icon: "phone_android",
-    description: "Aplicaciones nativas e intuitivas que conectan con tus usuarios y controlan hardware inteligente.",
-    services: [
-      "Aplicaciones Android nativas en Kotlin",
-      "Apps conectadas con hardware IoT (ESP32, MQTT) para control de dispositivos inteligentes",
-      "Prototipado rápido de apps empresariales y educativas",
-    ]
+    title: "SEO Avanzado",
+    description:
+      "Estrategia de posicionamiento para competir con otros negocios en los primeros resultados de Google.",
+    icon: "trending_up",
   },
   {
-    title: "Branding y Digitalización",
-    icon: "design_services",
-    description: "Construimos tu identidad de marca y te posicionamos estratégicamente en el mundo digital.",
-    services: [
-      "Diseño web moderno y responsivo con enfoque UX/UI",
-      "Identidad visual, branding y manual de marca",
-      "Optimización SEO y posicionamiento web",
-      "Campañas publicitarias segmentadas (Meta Ads y Google Ads)",
-    ]
+    title: "Pack Analítica",
+    description:
+      "Instalación de Google Analytics y Pixel de Meta para medir el tráfico de tu web.",
+    icon: "query_stats",
+  },
+  {
+    title: "Copywriting",
+    description:
+      "Textos persuasivos enfocados en ventas escritos por profesionales.",
+    icon: "edit_note",
+  },
+  {
+    title: "Mantenimiento Mensual",
+    description:
+      "Seguridad, copias de respaldo y soporte técnico para que no te preocupes por nada.",
+    icon: "settings_suggest",
+  },
+  {
+    title: "Optimización de Carga",
+    description:
+      "Ajustes avanzados para que tu web cargue en segundos, incluso con internet lento en Bolivia.",
+    icon: "bolt",
+  },
+  {
+    title: "Correos Corporativos",
+    description:
+      "Correos profesionales (ej. info@tuempresa.com) para generar más confianza.",
+    icon: "mail",
   },
 ];
 ---
 
-<Layout title="Servicios | Wiñay Tech">
-  <section class="py-20 md:py-32 bg-background-light dark:bg-background-dark">
-    <div class="container mx-auto px-4 text-center">
-      <h1 class="text-4xl md:text-5xl font-display font-bold animate-fade-in-up" style="--anim-delay: 0.1s;">
-        Soluciones Modulares para tu Crecimiento
-      </h1>
-      <p class="mt-4 max-w-3xl mx-auto text-lg text-text-light/80 dark:text-text-dark/80 animate-fade-in-up" style="--anim-delay: 0.2s;">
-        Nuestra tecnología se inspira en la **precisión andina** para construir sistemas escalables y duraderos, fusionando nuestras raíces con tecnología de vanguardia.
-      </p>
+<Layout title="Nuestros Planes | Wiñay Tech">
+  <!-- Hero Section -->
+  <section
+    class="py-20 md:py-32 bg-background-light dark:bg-background-dark overflow-hidden relative"
+  >
+    <div
+      class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 size-96 bg-primary/10 rounded-full blur-3xl"
+    >
+    </div>
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1
+          class="text-4xl md:text-6xl font-bold font-display animate-fade-in-up"
+        >
+          Planes que se adaptan al <span class="text-primary"
+            >crecimiento de tu negocio</span
+          >
+        </h1>
+        <p
+          class="mt-6 text-xl text-text-light/80 dark:text-text-dark/80 font-body animate-fade-in-up"
+          style="--anim-delay: 0.1s;"
+        >
+          No te cobramos por cosas que no necesitas. Elige una base sólida y
+          potencia tu web con nuestros servicios adicionales según tu
+          requerimiento.
+        </p>
+      </div>
     </div>
   </section>
-  
-  <TechCarousel title="Tecnología de Vanguardia: Backend, Mobile, Bases de Datos e IoT" />
-  
-  <section class="py-16 md:py-24 bg-contrast-accent dark:bg-background-dark/90">
-    <div class="container mx-auto px-4">
-      <div class="space-y-16">
-        {serviceGroups.map((group, groupIndex) => (
-          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start animate-fade-in-up" style={`--anim-delay: ${0.3 + groupIndex * 0.2}s;`}>
-            
-            <div class="lg:sticky lg:top-24 flex flex-col gap-4 p-6 rounded-xl border-t-4 border-primary shadow-lg bg-background-light dark:bg-contrast-accent/50 transform hover:scale-[1.02] transition-transform duration-300">
-              <span class="material-symbols-outlined text-5xl text-primary">{group.icon}</span>
-              <h2 class="text-2xl font-display font-semibold">{group.title}</h2>
-              <p class="text-sm text-text-light/70 dark:text-text-dark/70">{group.description}</p>
-            </div>
 
-            <div class="lg:col-span-2 space-y-4">
-              {group.services.map((service) => (
-                <div class="flex items-start gap-4 p-4 rounded-lg bg-background-light dark:bg-background-dark/50 border border-text-light/10 shadow-sm hover:border-primary transition-colors">
-                  <span class="material-symbols-outlined text-primary mt-1 text-xl">check_circle</span>
-                  <p class="text-base font-body">{service}</p>
-                </div>
-              ))}
-              {group.title === "Desarrollo Web" && (
-                <blockquote class="pl-4 border-l-4 border-primary/50 text-sm italic text-text-light/60 dark:text-text-dark/60 mt-6">
-                  "Utilizamos bases de datos robustas como MySQL, MongoDB y SQL Server." [cite: 59]
-                </blockquote>
-              )}
+  <TechCarousel title="Herramientas de Última Generación" />
+
+  <!-- Base Plans -->
+  <section class="py-16 md:py-24 bg-white dark:bg-accent-dark">
+    <div class="container mx-auto px-4">
+      <h2
+        class="text-3xl font-bold font-display text-center mb-16 text-text-light dark:text-text-dark"
+      >
+        Nuestros Planes Base
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        {
+          basePlans.map((plan, index) => (
+            <div
+              class="flex flex-col p-8 rounded-3xl border-2 border-accent-light dark:border-primary/20 bg-background-light dark:bg-background-dark shadow-lg hover:border-primary transition-all duration-300 animate-fade-in-up"
+              style={`--anim-delay: ${0.2 + index * 0.1}s;`}
+            >
+              <div class="size-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6">
+                <span class="material-symbols-outlined text-4xl">
+                  {plan.icon}
+                </span>
+              </div>
+              <h3 class="text-2xl font-bold font-display text-text-light dark:text-text-dark mb-2">
+                {plan.title}
+              </h3>
+              <p class="text-sm font-semibold text-primary mb-4 font-body">
+                {plan.focus}
+              </p>
+              <p class="text-text-light/70 dark:text-text-dark/70 font-body mb-8 leading-relaxed">
+                {plan.description}
+              </p>
+
+              <div class="space-y-4 mb-10 flex-grow">
+                {plan.features.map((feature) => (
+                  <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary text-xl font-bold">
+                      check
+                    </span>
+                    <p class="text-text-light/80 dark:text-text-dark/80 font-body text-sm font-medium">
+                      {feature}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <Button href="/contact" size="lg" class="w-full">
+                {plan.cta}
+              </Button>
             </div>
-          </div>
-        ))}
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Additional Services -->
+  <section class="py-16 md:py-24 bg-background-light dark:bg-background-dark">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <h2
+          class="text-3xl font-bold font-display text-text-light dark:text-text-dark mb-4"
+        >
+          ¿Quieres potenciar tu presencia aún más?
+        </h2>
+        <p class="text-lg text-text-light/70 dark:text-text-dark/70 font-body">
+          Agrega estos servicios a tu plan base según el tamaño y las
+          necesidades de tu proyecto.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {
+          additionalServices.map((service, index) => (
+            <div
+              class="p-6 rounded-2xl bg-white dark:bg-accent-dark border border-accent-light dark:border-primary/10 shadow-sm hover:shadow-md transition-shadow animate-fade-in-up"
+              style={`--anim-delay: ${0.4 + index * 0.05}s;`}
+            >
+              <span class="material-symbols-outlined text-primary text-3xl mb-4 block">
+                {service.icon}
+              </span>
+              <h4 class="text-lg font-bold font-display text-text-light dark:text-text-dark mb-2">
+                {service.title}
+              </h4>
+              <p class="text-sm text-text-light/70 dark:text-text-dark/70 font-body leading-relaxed">
+                {service.description}
+              </p>
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>
@@ -101,7 +212,6 @@ const serviceGroups = [
 </Layout>
 
 <style>
-  /* Reutilizamos la animación definida en tailwind.config.mjs */
   .animate-fade-in-up {
     animation: fade-in-up 0.6s ease-out forwards;
     animation-delay: var(--anim-delay, 0s);

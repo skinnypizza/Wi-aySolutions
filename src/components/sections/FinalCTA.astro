@@ -1,19 +1,29 @@
 ---
-import Button from '../Button.astro';
+import Button from "../Button.astro";
 ---
 
 <section class="bg-accent-dark dark:bg-background-dark py-20 md:py-32">
 	<div class="container mx-auto px-4 text-center">
 		<h2
-			class="text-3xl font-semibold leading-tight tracking-tight md:text-4xl font-display text-text-dark"
+			class="text-3xl font-bold md:text-5xl font-display text-text-dark mb-6"
 		>
-			Evoluciona, automatiza, Wiñay
+			¿Empezamos a trabajar en <span class="text-primary"
+				>tu próxima web?</span
+			>
 		</h2>
-		<p class="mt-4 max-w-2xl mx-auto text-text-dark/80">
-			¿Listo para llevar tu negocio al siguiente nivel? Hablemos de cómo podemos ayudarte a crecer.
+		<p class="mt-4 max-w-2xl mx-auto text-text-dark/80 text-lg font-body">
+			No dejes pasar más tiempo. Cuéntanos qué necesitas y te daremos una
+			propuesta a tu medida, clara y sin vueltas.
 		</p>
-		<div class="mt-8 flex justify-center">
-			<Button href="/contact" size="lg">Solicita una consulta</Button>
+		<div class="mt-10 flex flex-wrap justify-center gap-4">
+			<Button href="/contact" size="lg">Solicitar Cotización</Button>
+			<Button
+				href="/contact"
+				size="lg"
+				variant="outline"
+				class="!border-white !text-white hover:!bg-white hover:!text-background-dark"
+				>Hablemos por WhatsApp</Button
+			>
 		</div>
 	</div>
 </section>

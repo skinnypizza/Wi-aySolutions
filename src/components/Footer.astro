@@ -1,31 +1,43 @@
 ---
-import Icon from './Icon.astro';
+import Icon from "./Icon.astro";
 
 const logo = `<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M42.1739 20.1739L27.8261 5.82609C29.1366 7.13663 28.3989 10.1876 26.2002 13.7654C24.8538 15.9564 22.9595 18.3449 20.6522 20.6522C18.3449 22.9595 15.9564 24.8538 13.7654 26.2002C10.1876 28.3989 7.13663 29.1366 5.82609 27.8261L20.1739 42.1739C21.4845 43.4845 24.5355 42.7467 28.1133 40.548C30.3042 39.2016 32.6927 37.3073 35 35C37.3073 32.6927 39.2016 30.3042 40.548 28.1133C42.7467 24.5355 43.4845 21.4845 42.1739 20.1739Z" fill="currentColor"></path></svg>`;
 ---
 
 <footer class="bg-background-dark dark:bg-accent-dark text-text-dark/70">
 	<div class="container mx-auto px-4 py-12">
-		<div class="flex flex-col items-center justify-between gap-8 md:flex-row">
+		<div
+			class="flex flex-col items-center justify-between gap-8 md:flex-row"
+		>
 			<div class="flex items-center gap-3">
-				<div class="size-8 text-primary-DEFAULT" set:html={logo} />
-				<h2 class="text-xl font-semibold leading-tight text-text-dark">Wiñay Tech</h2>
+				<div class="size-8 text-primary" set:html={logo} />
+				<h2 class="text-xl font-semibold leading-tight text-text-dark">
+					Wiñay Tech
+				</h2>
 			</div>
-			<nav class="flex flex-wrap items-center justify-center gap-6 text-sm font-medium">
-				<a class="hover:text-primary-DEFAULT transition-colors" href="/services">Servicios</a>
-				<a class="hover:text-primary-DEFAULT transition-colors" href="/about">Nosotros</a>
-				<a class="hover:text-primary-DEFAULT transition-colors" href="/contact">Contacto</a>
+			<nav
+				class="flex flex-wrap items-center justify-center gap-6 text-sm font-medium"
+			>
+				<a class="hover:text-primary transition-colors" href="/services"
+					>Nuestros Planes</a
+				>
+				<a class="hover:text-primary transition-colors" href="/about"
+					>Quiénes Somos</a
+				>
+				<a class="hover:text-primary transition-colors" href="/contact"
+					>Contacto</a
+				>
 			</nav>
 			<div class="flex items-center gap-4">
 				<a
-					class="text-text-dark/70 hover:text-primary-DEFAULT transition-colors"
+					class="text-text-dark/70 hover:text-primary transition-colors"
 					href="https://www.linkedin.com/in/nicolas-cardenas-luna-4231992a8"
 					aria-label="LinkedIn"
 				>
 					<Icon name="linkedin" />
 				</a>
 				<a
-					class="text-text-dark/70 hover:text-primary-DEFAULT transition-colors"
+					class="text-text-dark/70 hover:text-primary transition-colors"
 					href="https://github.com/skinnypizza"
 					aria-label="GitHub"
 				>
@@ -34,7 +46,9 @@ const logo = `<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000
 			</div>
 		</div>
 		<div class="mt-8 border-t border-text-dark/10 pt-8 text-center text-sm">
-			<p>© {new Date().getFullYear()} Wiñay Tech. Todos los derechos reservados.</p>
+			<p>
+				© {new Date().getFullYear()} Wiñay Tech. Todos los derechos reservados.
+			</p>
 		</div>
 	</div>
 </footer>

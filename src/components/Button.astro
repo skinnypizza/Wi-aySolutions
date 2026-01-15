@@ -1,32 +1,38 @@
 ---
 // src/components/Button.astro
-import { cva, type VariantProps } from 'class-variance-authority';
+import { cva, type VariantProps } from "class-variance-authority";
 
 const button = cva(
-  'inline-flex items-center justify-center font-bold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2',
+  "inline-flex items-center justify-center font-bold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2",
   {
     variants: {
       variant: {
-        primary: 'bg-primary-DEFAULT text-white hover:bg-primary-dark focus:ring-primary-dark',
-        secondary: 'bg-accent-light text-text-light hover:bg-gray-300 dark:bg-accent-dark dark:text-text-dark dark:hover:bg-gray-600 focus:ring-gray-500',
+        primary:
+          "bg-primary text-white hover:bg-primary-dark focus:ring-primary-dark",
+        secondary:
+          "bg-accent-light text-text-light hover:bg-gray-300 dark:bg-accent-dark dark:text-text-dark dark:hover:bg-gray-600 focus:ring-gray-500",
+        outline:
+          "border-2 border-primary text-primary hover:bg-primary hover:text-white focus:ring-primary",
       },
       size: {
-        sm: 'h-10 px-4 text-sm',
-        md: 'h-12 px-6 text-base',
-        lg: 'h-14 px-8 text-lg',
+        sm: "h-10 px-4 text-sm",
+        md: "h-12 px-6 text-base",
+        lg: "h-14 px-8 text-lg",
       },
     },
     defaultVariants: {
-      variant: 'primary',
-      size: 'md',
+      variant: "primary",
+      size: "md",
     },
-  }
+  },
 );
 
 interface Props extends VariantProps<typeof button> {
   href: string;
+  variant?: "primary" | "secondary" | "outline" | null;
+  size?: "sm" | "md" | "lg" | null;
   class?: string;
-  'aria-label'?: string;
+  "aria-label"?: string;
 }
 
 const { href, variant, size, class: className, ...rest } = Astro.props;
