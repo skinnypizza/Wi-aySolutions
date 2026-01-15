@@ -1,5 +1,7 @@
 ---
+<<<<<<< HEAD
 import Button from "../Button.astro";
+import Icon from "../Icon.astro";
 ---
 
 <section class="bg-accent-dark dark:bg-background-dark py-20 md:py-32">
@@ -27,3 +29,33 @@ import Button from "../Button.astro";
 		</div>
 	</div>
 </section>
+=======
+import Button from '../Button.astro';
+import Icon from '../Icon.astro';
+---
+
+<section class="bg-secondary dark:bg-background-dark py-20 md:py-28">
+  <div class="container mx-auto px-4 text-center">
+
+    <div class="max-w-2xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-display font-bold text-text-dark">
+        ¿Tienes un proyecto en mente?
+      </h2>
+      <p class="mt-4 text-lg text-text-dark/70 font-body">
+        Nos encantaría escucharte. Cada gran proyecto comienza con una buena charla. Sin compromiso y sin jerga técnica.
+      </p>
+    </div>
+
+    <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+      <Button href="/contact" size="lg" variant="primary">
+        Hablemos de tu Proyecto
+      </Button>
+      <Button href="https://wa.me/591XXXXXXXX" size="lg" variant="outline">
+         <Icon name="whatsapp" class="mr-2" />
+        O escríbenos por WhatsApp
+      </Button>
+    </div>
+
+  </div>
+</section>
+>>>>>>> 742e7da87898e31846289c2d783e3200a5c0347a

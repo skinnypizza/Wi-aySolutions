@@ -1,9 +1,21 @@
 ---
 import Icon from "./Icon.astro";
 
-const logo = `<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M42.1739 20.1739L27.8261 5.82609C29.1366 7.13663 28.3989 10.1876 26.2002 13.7654C24.8538 15.9564 22.9595 18.3449 20.6522 20.6522C18.3449 22.9595 15.9564 24.8538 13.7654 26.2002C10.1876 28.3989 7.13663 29.1366 5.82609 27.8261L20.1739 42.1739C21.4845 43.4845 24.5355 42.7467 28.1133 40.548C30.3042 39.2016 32.6927 37.3073 35 35C37.3073 32.6927 39.2016 30.3042 40.548 28.1133C42.7467 24.5355 43.4845 21.4845 42.1739 20.1739Z" fill="currentColor"></path></svg>`;
+// src/components/Footer.astro
+const navLinks = [
+  { href: '/services', text: 'Servicios' },
+  { href: '/about', text: 'Nosotros' },
+  { href: '/contact', text: 'Contacto' },
+];
+
+const socialLinks = [
+  { href: '#', icon: 'brand_linkedin', label: 'LinkedIn' },
+  { href: '#', icon: 'brand_github', label: 'GitHub' },
+  { href: '#', icon: 'brand_instagram', label: 'Instagram' },
+];
 ---
 
+<<<<<<< HEAD
 <footer class="bg-background-dark dark:bg-accent-dark text-text-dark/70">
 	<div class="container mx-auto px-4 py-12">
 		<div
@@ -52,3 +64,54 @@ const logo = `<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000
 		</div>
 	</div>
 </footer>
+=======
+<footer class="bg-background-dark text-text-dark">
+  <div class="container mx-auto px-4 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
+
+      <!-- Logo y Descripción -->
+      <div class="flex flex-col items-center md:items-start gap-4">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-background-dark font-brand font-extrabold text-xl">
+            W
+          </div>
+          <h2 class="text-2xl font-brand font-extrabold tracking-tighter">Wiñay</h2>
+        </div>
+        <p class="text-text-dark/60 font-body max-w-xs">
+          Tecnología con raíces y visión. Creamos soluciones digitales que crecen contigo.
+        </p>
+      </div>
+
+      <!-- Navegación -->
+      <div>
+        <h3 class="font-display font-semibold text-lg mb-4">Navegación</h3>
+        <nav class="flex flex-col gap-3">
+          {navLinks.map((link) => (
+            <a href={link.href} class="text-text-dark/80 hover:text-primary transition-colors">
+              {link.text}
+            </a>
+          ))}
+        </nav>
+      </div>
+
+      <!-- Contacto y Redes Sociales -->
+      <div>
+        <h3 class="font-display font-semibold text-lg mb-4">Hablemos</h3>
+        <a href="mailto:info@winay.tech" class="block text-text-dark/80 hover:text-primary transition-colors">info@winay.tech</a>
+        <div class="flex justify-center md:justify-start items-center gap-4 mt-6">
+          {socialLinks.map((link) => (
+            <a href={link.href} aria-label={link.label} class="text-text-dark/80 hover:text-primary transition-colors">
+              <Icon name={link.icon} class="text-2xl" />
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bg-black/20">
+    <div class="container mx-auto px-4 py-4 text-center text-sm text-text-dark/50">
+      <p>&copy; {new Date().getFullYear()} Wiñay Tech. Hecho en Bolivia con ❤️ y ☕</p>
+    </div>
+  </div>
+</footer>
+>>>>>>> 742e7da87898e31846289c2d783e3200a5c0347a

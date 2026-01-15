@@ -1,0 +1,102 @@
+---
+// src/components/ServiceGrid.astro
+import ServiceCard from './ServiceCard.astro';
+
+// Datos de los servicios según la rúbrica obligatoria
+const services = [
+  // Planes Principales
+  {
+    title: "Plan Landing Page",
+    audience: "Negocios que necesitan presencia rápida y clara.",
+    description: "Una sola página con toda tu información clave, ideal para captar clientes desde el primer día. Incluye hosting y dominio por 1 año.",
+    features: [
+      { text: "Diseño único y profesional", icon: "palette" },
+      { text: "Optimizado para celulares", icon: "smartphone" },
+      { text: "Formulario de Contacto Pro", icon: "email" },
+      { text: "Botón directo a WhatsApp", icon: "brand_whatsapp" },
+      { text: "SEO Básico inicial", icon: "rocket_launch" },
+    ],
+    ctaText: "Cotizar Landing Page",
+    ctaLink: "/contact?service=landing-page"
+  },
+  {
+    title: "Plan Web Corporativa",
+    audience: "Empresas que buscan una imagen sólida y profesional.",
+    description: "Un sitio multi-página para presentar tu empresa, servicios y equipo de forma completa. Incluye hosting y dominio por 1 año.",
+    features: [
+      { text: "Múltiples secciones (Inicio, Servicios, etc.)", icon: "web" },
+      { text: "Diseño alineado a tu marca", icon: "brush" },
+      { text: "Panel para gestionar contenido (opcional)", icon: "edit" },
+      { text: "Pack Contacto Pro incluido", icon: "alternate_email" },
+      { text: "SEO Básico inicial", icon: "rocket_launch" },
+    ],
+    ctaText: "Cotizar Web Corporativa",
+    ctaLink: "/contact?service=web-corporativa"
+  },
+  // Packs y Servicios Adicionales
+  {
+    title: "Copywriting",
+    audience: "Quienes buscan textos que vendan.",
+    description: "Dejamos de solo informar. Creamos textos persuasivos que conectan con tus clientes y les motivan a contactarte.",
+    features: [
+      { text: "Análisis de tu público objetivo", icon: "psychology" },
+      { text: "Textos orientados a la conversión", icon: "monetization_on" },
+      { text: "Tono de voz cercano y profesional", icon: "record_voice_over" },
+    ],
+    ctaText: "Consultar por Copywriting",
+    ctaLink: "/contact?service=copywriting"
+  },
+  {
+    title: "Mantenimiento Mensual",
+    audience: "Negocios que valoran la tranquilidad.",
+    description: "Tu web siempre segura, actualizada y funcionando sin problemas para que tú te dediques a tu negocio.",
+    features: [
+      { text: "Actualizaciones de seguridad", icon: "security" },
+      { text: "Copias de seguridad periódicas", icon: "backup" },
+      { text: "Soporte técnico prioritario", icon: "support_agent" },
+    ],
+    ctaText: "Ver Planes de Mantenimiento",
+    ctaLink: "/contact?service=mantenimiento"
+  },
+  {
+    title: "SEO Avanzado",
+    audience: "Empresas que quieren competir en Google.",
+    description: "Investigamos a tu competencia y optimizamos tu web para que aparezcas en los primeros resultados de búsqueda.",
+    features: [
+      { text: "Estrategia de palabras clave", icon: "search" },
+      { text: "Optimización de contenido y técnica", icon: "settings" },
+      { text: "Reportes de posicionamiento", icon: "analytics" },
+    ],
+    ctaText: "Quiero SEO Avanzado",
+    ctaLink: "/contact?service=seo-avanzado"
+  },
+  {
+    title: "Correos Corporativos",
+    audience: "Profesionales que buscan generar confianza.",
+    description: "Comunícate con correos como 'info@tuempresa.com' para consolidar la imagen de tu marca.",
+    features: [
+      { text: "Configuración de cuentas de correo", icon: "mail" },
+      { text: "Integración con Gmail u Outlook", icon: "sync" },
+      { text: "Asesoramiento en buenas prácticas", icon: "help" },
+    ],
+    ctaText: "Solicitar Correos",
+    ctaLink: "/contact?service=correos"
+  },
+];
+---
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  {services.map((service, index) => (
+    <div class="animate-fade-in-up" style={`--anim-delay: ${index * 0.1}s;`}>
+      <ServiceCard {...service} />
+    </div>
+  ))}
+</div>
+
+<style>
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out forwards;
+    animation-delay: var(--anim-delay, 0s);
+    opacity: 0;
+  }
+</style>
