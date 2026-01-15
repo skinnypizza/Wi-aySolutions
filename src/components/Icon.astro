@@ -1,25 +1,35 @@
 ---
-// src/components/Icon.astro
 interface Props {
   name: string;
   class?: string;
+  pack?: 'fas' | 'far' | 'fab';
   'aria-label'?: string;
-  isMaterial?: boolean;
 }
 
 const {
   name,
   class: className,
+  pack = 'material',
   'aria-label': ariaLabel,
   ...rest
 } = Astro.props;
----
 
-<span
-  class:list={['material-symbols-outlined', className]}
-  aria-hidden={ariaLabel ? undefined : 'true'}
-  aria-label={ariaLabel}
-  {...rest}
->
-  {name}
-</span>
+const iconClass = pack === 'material' ? 'material-symbols-outlined' : `${pack} fa-${name}`;
+---
+{pack === 'material' ? (
+  <span
+    class:list={[iconClass, className]}
+    aria-hidden={ariaLabel ? undefined : 'true'}
+    aria-label={ariaLabel}
+    {...rest}
+  >
+    {name}
+  </span>
+) : (
+  <i
+    class:list={[iconClass, className]}
+    aria-hidden={ariaLabel ? undefined : 'true'}
+    aria-label={ariaLabel}
+    {...rest}
+  ></i>
+)}

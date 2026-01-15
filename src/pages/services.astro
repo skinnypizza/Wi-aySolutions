@@ -1,73 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ServiceGrid from '../components/ServiceGrid.astro';
-import FinalCTA from '../components/sections/FinalCTA.astro';
-import Icon from '../components/Icon.astro';
-
-// Datos para la sección de "Packs y Adicionales"
-const additionalServices = [
-  { name: 'Pack Contacto Pro', icon: 'alternate_email' },
-  { name: 'SEO Básico', icon: 'rocket_launch' },
-  { name: 'Pack Analítica', icon: 'analytics' },
-  { name: 'Optimización de Carga', icon: 'speed' },
-];
 ---
-
 <Layout title="Servicios | Wiñay Tech">
+    <div class="p-4 md:p-8">
+        <div class="max-w-6xl mx-auto">
+            <!-- Cabecera -->
+            <header class="text-center mb-12">
+                <div class="mb-4 inline-block p-2 bg-blue-50 rounded-2xl">
+                    <span class="text-blue-600 font-bold tracking-widest uppercase text-xs">Wiñay Software</span>
+                </div>
+                <h1 class="text-4xl font-extrabold text-gray-800 mb-2">Planes y Servicios a tu Medida</h1>
+                <p class="text-gray-500 font-medium">Soluciones claras y sin sorpresas, pensadas para el mercado de Bolivia y LATAM.</p>
+            </header>
 
-  <!-- Encabezado de la Página -->
-  <section class="py-20 md:py-28 bg-background-light dark:bg-background-dark">
-    <div class="container mx-auto px-4 text-center">
-      <div class="max-w-3xl mx-auto">
-        <h1 class="text-4xl md:text-5xl font-display font-bold text-text-light dark:text-text-dark animate-fade-in-up" style="--anim-delay: 0.1s;">
-          Planes y Servicios a tu Medida
-        </h1>
-        <p class="mt-4 text-lg text-text-light/80 dark:text-text-dark/80 animate-fade-in-up" style="--anim-delay: 0.2s;">
-          Cada proyecto es único. Por eso, nuestros planes están diseñados como puntos de partida flexibles. Cuéntanos tu necesidad y creamos una propuesta a medida para ti.
-        </p>
-      </div>
+            <ServiceGrid />
+
+        </div>
     </div>
-  </section>
-
-  <!-- Grilla de Servicios Principales -->
-  <section class="py-16 md:py-24 bg-accent-light/50 dark:bg-accent-soft/20">
-    <div class="container mx-auto px-4">
-      <ServiceGrid />
-    </div>
-  </section>
-
-  <!-- Sección de Adicionales -->
-  <section class="py-20 md:py-28 bg-background-light dark:bg-background-dark">
-    <div class="container mx-auto px-4">
-      <div class="text-center max-w-3xl mx-auto">
-        <h2 class="text-3xl md:text-4xl font-display font-bold text-text-light dark:text-text-dark">
-          Packs y Adicionales para Potenciar tu Web
-        </h2>
-        <p class="mt-4 text-lg text-text-light/80 dark:text-text-dark/80">
-          Complementa tu plan con herramientas clave para mejorar la comunicación, visibilidad y rendimiento de tu sitio.
-        </p>
-      </div>
-      <div class="mt-12 max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-        {additionalServices.map(service => (
-          <div class="flex flex-col items-center gap-3">
-            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
-              <Icon name={service.icon} class="text-3xl text-primary" />
-            </div>
-            <p class="font-body font-semibold text-text-light dark:text-text-dark">{service.name}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <FinalCTA />
-
 </Layout>
-
-<style>
-  .animate-fade-in-up {
-    animation: fade-in-up 0.6s ease-out forwards;
-    animation-delay: var(--anim-delay, 0s);
-    opacity: 0;
-  }
-</style>

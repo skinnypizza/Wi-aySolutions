@@ -1,6 +1,7 @@
 ---
 import Button from '../Button.astro';
 import Icon from '../Icon.astro';
+import { SITE_DATA } from '../../config';
 ---
 
 <section class="bg-secondary dark:bg-background-dark py-20 md:py-28">
@@ -19,8 +20,8 @@ import Icon from '../Icon.astro';
       <Button href="/contact" size="lg" variant="primary">
         Hablemos de tu Proyecto
       </Button>
-      <Button href="https://wa.me/591XXXXXXXX" size="lg" variant="outline">
-         <Icon name="whatsapp" class="mr-2" />
+      <Button href={`https://wa.me/${SITE_DATA.whatsappNumber}`} size="lg" variant="outline">
+         <Icon name="whatsapp" pack="fab" class="mr-2" />
         O escríbenos por WhatsApp
       </Button>
     </div>

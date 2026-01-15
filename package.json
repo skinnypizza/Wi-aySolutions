@@ -13,11 +13,14 @@
     "@fontsource/nunito-sans": "^5.2.7",
     "@fontsource/source-sans-3": "^5.2.9",
     "@fontsource/source-sans-pro": "^5.2.5",
+    "@playwright/test": "^1.57.0",
     "@tailwindcss/vite": "^4.1.16",
     "alpinejs": "^3.15.1",
     "astro": "^5.15.3",
     "class-variance-authority": "^0.7.1",
-    "material-symbols": "^0.39.1"
+    "fs": "^0.0.1-security",
+    "material-symbols": "^0.39.1",
+    "mssql": "^12.2.0"
   },
   "devDependencies": {
     "@astrojs/alpinejs": "^0.4.9",

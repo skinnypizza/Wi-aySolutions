@@ -13,7 +13,7 @@ const services = [
       { text: "Diseño único y profesional", icon: "palette" },
       { text: "Optimizado para celulares", icon: "smartphone" },
       { text: "Formulario de Contacto Pro", icon: "email" },
-      { text: "Botón directo a WhatsApp", icon: "brand_whatsapp" },
+      { text: "Botón directo a WhatsApp", icon: "whatsapp", pack: "fab" },
       { text: "SEO Básico inicial", icon: "rocket_launch" },
     ],
     ctaText: "Cotizar Landing Page",
@@ -87,16 +87,8 @@ const services = [
 
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
   {services.map((service, index) => (
-    <div class="animate-fade-in-up" style={`--anim-delay: ${index * 0.1}s;`}>
+    <div transition:animate="fade">
       <ServiceCard {...service} />
     </div>
   ))}
 </div>
-
-<style>
-  .animate-fade-in-up {
-    animation: fade-in-up 0.6s ease-out forwards;
-    animation-delay: var(--anim-delay, 0s);
-    opacity: 0;
-  }
-</style>

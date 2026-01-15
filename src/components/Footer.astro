@@ -1,7 +1,7 @@
 ---
+import { SITE_DATA } from '../config';
 import Icon from './Icon.astro';
 
-// src/components/Footer.astro
 const navLinks = [
   { href: '/services', text: 'Servicios' },
   { href: '/about', text: 'Nosotros' },
@@ -9,9 +9,9 @@ const navLinks = [
 ];
 
 const socialLinks = [
-  { href: '#', icon: 'brand_linkedin', label: 'LinkedIn' },
-  { href: '#', icon: 'brand_github', label: 'GitHub' },
-  { href: '#', icon: 'brand_instagram', label: 'Instagram' },
+  { href: `https://wa.me/${SITE_DATA.whatsappNumber}`, icon: 'whatsapp', pack: 'fab', label: 'WhatsApp' },
+  { href: '#', icon: 'linkedin', pack: 'fab', label: 'LinkedIn' },
+  { href: '#', icon: 'instagram', pack: 'fab', label: 'Instagram' },
 ];
 ---
 
@@ -19,20 +19,18 @@ const socialLinks = [
   <div class="container mx-auto px-4 py-16">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
 
-      <!-- Logo y Descripción -->
       <div class="flex flex-col items-center md:items-start gap-4">
         <div class="flex items-center gap-2">
           <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-background-dark font-brand font-extrabold text-xl">
             W
           </div>
-          <h2 class="text-2xl font-brand font-extrabold tracking-tighter">Wiñay</h2>
+          <h2 class="text-2xl font-brand font-extrabold tracking-tighter">{SITE_DATA.name}</h2>
         </div>
         <p class="text-text-dark/60 font-body max-w-xs">
-          Tecnología con raíces y visión. Creamos soluciones digitales que crecen contigo.
+          Soluciones digitales que crecen contigo.
         </p>
       </div>
 
-      <!-- Navegación -->
       <div>
         <h3 class="font-display font-semibold text-lg mb-4">Navegación</h3>
         <nav class="flex flex-col gap-3">
@@ -44,14 +42,14 @@ const socialLinks = [
         </nav>
       </div>
 
-      <!-- Contacto y Redes Sociales -->
       <div>
-        <h3 class="font-display font-semibold text-lg mb-4">Hablemos</h3>
-        <a href="mailto:info@winay.tech" class="block text-text-dark/80 hover:text-primary transition-colors">info@winay.tech</a>
+        <h3 class="font-display font-semibold text-lg mb-4">Contacto</h3>
+        <a href={`mailto:${SITE_DATA.email}`} class="block text-text-dark/80 hover:text-primary transition-colors">{SITE_DATA.email}</a>
+        <a href={`tel:${SITE_DATA.phone}`} class="block text-text-dark/80 hover:text-primary transition-colors mt-2">{SITE_DATA.phone}</a>
         <div class="flex justify-center md:justify-start items-center gap-4 mt-6">
           {socialLinks.map((link) => (
-            <a href={link.href} aria-label={link.label} class="text-text-dark/80 hover:text-primary transition-colors">
-              <Icon name={link.icon} class="text-2xl" />
+            <a href={link.href} aria-label={link.label} class="text-text-dark/80 hover:text-primary transition-colors" target="_blank" rel="noopener noreferrer">
+              <Icon name={link.icon} pack={link.pack} class="text-2xl" />
             </a>
           ))}
         </div>
@@ -60,7 +58,7 @@ const socialLinks = [
   </div>
   <div class="bg-black/20">
     <div class="container mx-auto px-4 py-4 text-center text-sm text-text-dark/50">
-      <p>&copy; {new Date().getFullYear()} Wiñay Tech. Hecho en Bolivia con ❤️ y ☕</p>
+      <p>&copy; {new Date().getFullYear()} {SITE_DATA.name}. Hecho en Bolivia con ❤️ y ☕</p>
     </div>
   </div>
 </footer>
