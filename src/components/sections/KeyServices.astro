@@ -1,65 +1,68 @@
 ---
+import Icon from '../Icon.astro';
+
 const services = [
-  {
-    icon: "code",
-    title: "Desarrollo Web",
-    description: "Creamos experiencias web robustas, escalables y a la medida de tus necesidades."
-  },
-  {
-    icon: "hub",
-    title: "Automatización e Integraciones",
-    description: "Optimizamos tus procesos conectando sistemas y hardware para una eficiencia máxima."
-  },
-  {
-    icon: "phone_iphone",
-    title: "Desarrollo Móvil",
-    description: "Desarrollamos aplicaciones móviles intuitivas que conectan con tus usuarios."
-  },
-  {
-    icon: "palette",
-    title: "Diseño Digital y Branding",
-    description: "Construimos identidades de marca memorables que reflejan tus valores y visión."
-  }
-]
+	{
+		icon: 'code',
+		title: 'Desarrollo Web',
+		description: 'Creamos experiencias web robustas, escalables y a la medida de tus necesidades.',
+	},
+	{
+		icon: 'hub',
+		title: 'Automatización e Integraciones',
+		description: 'Optimizamos tus procesos conectando sistemas y hardware para una eficiencia máxima.',
+	},
+	{
+		icon: 'phone_iphone',
+		title: 'Desarrollo Móvil',
+		description: 'Desarrollamos aplicaciones móviles intuitivas que conectan con tus usuarios.',
+	},
+	{
+		icon: 'palette',
+		title: 'Diseño Digital y Branding',
+		description: 'Construimos identidades de marca memorables que reflejan tus valores y visión.',
+	},
+];
 ---
 
-<section class="py-16 md:py-24 bg-background-light dark:bg-contrast-accent">
-  <div class="container mx-auto px-4">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl font-semibold leading-tight tracking-tight md:text-4xl font-display">
-        Nuestros Servicios
-      </h2>
-      <p class="mt-4 max-w-2xl mx-auto text-text-light/70 dark:text-text-dark/70">
-        Soluciones integrales para potenciar tu presencia digital y optimizar tus operaciones.
-      </p>
-    </div>
-    
-    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-      {services.map((service, index) => (
-        <div 
-          class="flex flex-1 flex-col gap-4 rounded-xl border border-text-light/10 bg-background-light dark:bg-background-dark p-6 transition-all duration-300 hover:shadow-xl hover:scale-105 transform animate-fade-in-up"
-          style={`--anim-delay: ${index * 0.1}s;`}
-        >
-          <span class="material-symbols-outlined text-4xl text-primary">
-            {service.icon}
-          </span>
-          <div class="flex flex-col gap-1">
-            <h3 class="text-lg font-semibold font-display">{service.title}</h3>
-            <p class="text-sm font-normal leading-normal text-text-light/70 dark:text-text-dark/70">
-              {service.description}
-            </p>
-          </div>
-        </div>
-      ))}
-    </div>
-  </div>
+<section class="py-16 md:py-24 bg-background-light dark:bg-accent-dark">
+	<div class="container mx-auto px-4">
+		<div class="text-center mb-12">
+			<h2
+				class="text-3xl font-semibold leading-tight tracking-tight md:text-4xl font-display text-text-light dark:text-text-dark"
+			>
+				Nuestros Servicios
+			</h2>
+			<p class="mt-4 max-w-2xl mx-auto text-text-light/70 dark:text-text-dark/70">
+				Soluciones integrales para potenciar tu presencia digital y optimizar tus operaciones.
+			</p>
+		</div>
+
+		<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+			{services.map((service, index) => (
+				<div
+					class="flex flex-1 flex-col gap-4 rounded-xl border border-accent-light dark:border-accent-dark bg-background-light dark:bg-background-dark p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 animate-fade-in-up"
+					style={`--anim-delay: ${index * 0.1}s;`}
+				>
+					<Icon name={service.icon} isMaterial class="text-4xl text-primary-DEFAULT" />
+					<div class="flex flex-col gap-1">
+						<h3 class="text-lg font-semibold font-display text-text-light dark:text-text-dark">
+							{service.title}
+						</h3>
+						<p class="text-sm font-normal leading-normal text-text-light/70 dark:text-text-dark/70">
+							{service.description}
+						</p>
+					</div>
+				</div>
+			))}
+		</div>
+	</div>
 </section>
 
 <style>
-  /* Reutilizamos la misma clase de animación */
-  .animate-fade-in-up {
-    animation: fade-in-up 0.6s ease-out forwards;
-    animation-delay: var(--anim-delay, 0s);
-    opacity: 0;
-  }
+	.animate-fade-in-up {
+		animation: fade-in-up 0.6s ease-out forwards;
+		animation-delay: var(--anim-delay, 0s);
+		opacity: 0;
+	}
 </style>
