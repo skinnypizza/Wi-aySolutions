@@ -3,26 +3,16 @@
 import { cva, type VariantProps } from "class-variance-authority";
 
 const button = cva(
-<<<<<<< HEAD
-  "inline-flex items-center justify-center font-bold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2",
+  "inline-flex items-center justify-center font-body font-bold rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 transform hover:scale-[1.03]",
   {
     variants: {
       variant: {
         primary:
-          "bg-primary text-white hover:bg-primary-dark focus:ring-primary-dark",
+          "bg-primary text-text-dark hover:bg-opacity-90 focus:ring-primary",
         secondary:
-          "bg-accent-light text-text-light hover:bg-gray-300 dark:bg-accent-dark dark:text-text-dark dark:hover:bg-gray-600 focus:ring-gray-500",
+          "bg-secondary text-text-dark hover:bg-opacity-90 focus:ring-secondary",
         outline:
-          "border-2 border-primary text-primary hover:bg-primary hover:text-white focus:ring-primary",
-=======
-  'inline-flex items-center justify-center font-body font-bold rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 transform hover:scale-[1.03]',
-  {
-    variants: {
-      variant: {
-        primary: 'bg-primary text-text-dark hover:bg-opacity-90 focus:ring-primary',
-        secondary: 'bg-secondary text-text-dark hover:bg-opacity-90 focus:ring-secondary',
-        outline: 'bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-text-dark focus:ring-primary',
->>>>>>> 742e7da87898e31846289c2d783e3200a5c0347a
+          "bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-text-dark focus:ring-primary",
       },
       size: {
         sm: "h-10 px-4 text-sm",

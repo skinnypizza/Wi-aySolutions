@@ -1,76 +1,72 @@
 ---
-<<<<<<< HEAD
 import Icon from "../Icon.astro";
+import Button from "../Button.astro";
 
-const services = [
+const keySolutions = [
 	{
-		icon: "code",
-		title: "Desarrollo Web",
+		icon: "flash_on",
+		title: "Presencia Web Rápida",
 		description:
-			"Creamos experiencias web robustas, escalables y a la medida de tus necesidades.",
+			"Lanza tu idea o negocio con una landing page profesional en tiempo récord. Ideal para empezar a captar clientes.",
 	},
 	{
-		icon: "hub",
-		title: "Automatización e Integraciones",
+		icon: "business_center",
+		title: "Imagen Corporativa Sólida",
 		description:
-			"Optimizamos tus procesos conectando sistemas y hardware para una eficiencia máxima.",
+			"Fortalece tu marca con una web multi-página que genera confianza y muestra todo tu potencial.",
 	},
 	{
-		icon: "phone_iphone",
-		title: "Desarrollo Móvil",
+		icon: "trending_up",
+		title: "Optimización y Crecimiento",
 		description:
-			"Desarrollamos aplicaciones móviles intuitivas que conectan con tus usuarios.",
-	},
-	{
-		icon: "palette",
-		title: "Diseño Digital y Branding",
-		description:
-			"Construimos identidades de marca memorables que reflejan tus valores y visión.",
+			"Aparece en Google, mide tus resultados y convierte visitantes en clientes con nuestras herramientas pro.",
 	},
 ];
 ---
 
-<section class="py-16 md:py-24 bg-background-light dark:bg-accent-dark">
+<section class="py-20 md:py-28 bg-accent-light dark:bg-accent-soft/20">
 	<div class="container mx-auto px-4">
-		<div class="text-center mb-12">
+		<div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
 			<h2
-				class="text-3xl font-bold md:text-4xl font-display text-text-light dark:text-text-dark"
+				class="text-3xl md:text-4xl font-display font-bold text-text-light dark:text-text-dark"
 			>
-				Soluciones <span class="text-primary"
-					>diseñadas para crecer</span
-				>
+				Soluciones pensadas para tu negocio
 			</h2>
-			<p
-				class="mt-4 max-w-2xl mx-auto text-text-light/70 dark:text-text-dark/70 font-body"
-			>
-				En Wiñay Tech no solo entregamos código; construimos la
-				herramienta que tu negocio necesita para destacar en el mercado.
+			<p class="mt-4 text-lg text-text-light/80 dark:text-text-dark/80">
+				No importa si estás empezando o buscas expandirte. Tenemos un
+				punto de partida claro para cada necesidad.
 			</p>
 		</div>
 
-		<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 			{
-				services.map((service, index) => (
+				keySolutions.map((solution, index) => (
 					<div
-						class="flex flex-1 flex-col gap-4 rounded-xl border border-accent-light dark:border-accent-dark bg-background-light dark:bg-background-dark p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 animate-fade-in-up"
-						style={`--anim-delay: ${index * 0.1}s;`}
+						class="bg-background-light dark:bg-background-dark p-8 rounded-xl shadow-lg border border-transparent hover:border-primary transition-all duration-300 transform hover:-translate-y-2 animate-fade-in-up"
+						style={`--anim-delay: ${index * 0.15}s;`}
 					>
 						<Icon
-							name={service.icon}
-							isMaterial
-							class="text-4xl text-primary"
+							name={solution.icon}
+							class="text-4xl text-primary mb-4"
 						/>
-						<div class="flex flex-col gap-1">
-							<h3 class="text-lg font-semibold font-display text-text-light dark:text-text-dark">
-								{service.title}
-							</h3>
-							<p class="text-sm font-normal leading-normal text-text-light/70 dark:text-text-dark/70">
-								{service.description}
-							</p>
-						</div>
+						<h3 class="text-xl font-display font-semibold mb-2 text-text-light dark:text-text-dark">
+							{solution.title}
+						</h3>
+						<p class="font-body text-text-light/70 dark:text-text-dark/70">
+							{solution.description}
+						</p>
 					</div>
 				))
 			}
+		</div>
+
+		<div
+			class="text-center mt-16 animate-fade-in-up"
+			style="--anim-delay: 0.6s;"
+		>
+			<Button href="/services" variant="outline" size="lg">
+				Ver Todos los Servicios y Packs
+			</Button>
 		</div>
 	</div>
 </section>
@@ -82,72 +78,3 @@ const services = [
 		opacity: 0;
 	}
 </style>
-=======
-import Icon from '../Icon.astro';
-import Button from '../Button.astro';
-
-const keySolutions = [
-  {
-    icon: 'flash_on',
-    title: 'Presencia Web Rápida',
-    description: 'Lanza tu idea o negocio con una landing page profesional en tiempo récord. Ideal para empezar a captar clientes.',
-  },
-  {
-    icon: 'business_center',
-    title: 'Imagen Corporativa Sólida',
-    description: 'Fortalece tu marca con una web multi-página que genera confianza y muestra todo tu potencial.',
-  },
-  {
-    icon: 'trending_up',
-    title: 'Optimización y Crecimiento',
-    description: 'Aparece en Google, mide tus resultados y convierte visitantes en clientes con nuestras herramientas pro.',
-  },
-];
----
-
-<section class="py-20 md:py-28 bg-accent-light dark:bg-accent-soft/20">
-  <div class="container mx-auto px-4">
-
-    <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-      <h2 class="text-3xl md:text-4xl font-display font-bold text-text-light dark:text-text-dark">
-        Soluciones pensadas para tu negocio
-      </h2>
-      <p class="mt-4 text-lg text-text-light/80 dark:text-text-dark/80">
-        No importa si estás empezando o buscas expandirte. Tenemos un punto de partida claro para cada necesidad.
-      </p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      {keySolutions.map((solution, index) => (
-        <div
-          class="bg-background-light dark:bg-background-dark p-8 rounded-xl shadow-lg border border-transparent hover:border-primary transition-all duration-300 transform hover:-translate-y-2 animate-fade-in-up"
-          style={`--anim-delay: ${index * 0.15}s;`}
-        >
-          <Icon name={solution.icon} class="text-4xl text-primary mb-4" />
-          <h3 class="text-xl font-display font-semibold mb-2 text-text-light dark:text-text-dark">
-            {solution.title}
-          </h3>
-          <p class="font-body text-text-light/70 dark:text-text-dark/70">
-            {solution.description}
-          </p>
-        </div>
-      ))}
-    </div>
-
-    <div class="text-center mt-16 animate-fade-in-up" style="--anim-delay: 0.6s;">
-      <Button href="/services" variant="outline" size="lg">
-        Ver Todos los Servicios y Packs
-      </Button>
-    </div>
-
-  </div>
-</section>
-
-<style>
-  .animate-fade-in-up {
-    animation: fade-in-up 0.6s ease-out forwards;
-    animation-delay: var(--anim-delay, 0s);
-    opacity: 0;
-  }
-</style>
->>>>>>> 742e7da87898e31846289c2d783e3200a5c0347a

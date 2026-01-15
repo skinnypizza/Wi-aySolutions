@@ -1,103 +1,50 @@
 ---
-<<<<<<< HEAD
-import { Image } from "astro:assets";
-import heroImage from "../../assets/hero-placeholder.jpg";
 import Button from "../Button.astro";
+import Icon from "../Icon.astro";
 ---
 
-<section class="py-20 md:py-32 overflow-hidden">
-	<div class="container mx-auto px-4">
-		<div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-			<div class="flex flex-col gap-6 text-center lg:text-left">
-				<div
-					class="flex flex-col gap-4 animate-fade-in-up"
-					style="--anim-delay: 0.1s;"
-				>
-					<h1
-						class="text-4xl font-bold leading-tight tracking-tight md:text-6xl font-display text-text-light dark:text-text-dark"
-					>
-						No solo creamos webs, <span class="text-primary"
-							>impulsamos tu negocio</span
-						>
-					</h1>
-					<p
-						class="text-lg font-normal leading-relaxed text-text-light/80 dark:text-text-dark/80 font-body"
-					>
-						En Wiñay Tech entendemos el mercado boliviano. Te
-						explicamos de forma transparente cómo una presencia
-						digital profesional te ayudará a conseguir más clientes
-						y crecer.
-					</p>
-				</div>
-				<div
-					class="flex flex-wrap justify-center lg:justify-start gap-4 animate-fade-in-up"
-					style="--anim-delay: 0.2s;"
-				>
-					<Button href="/services" size="lg"
-						>Mira nuestros planes</Button
-					>
-					<Button href="/contact" size="lg" variant="outline"
-						>Hablemos por WhatsApp</Button
-					>
-				</div>
-			</div>
-
-			<div
-				class="relative flex items-center justify-center animate-fade-in-up"
-				style="--anim-delay: 0.3s;"
+<section
+	class="relative bg-background-light dark:bg-background-dark py-24 md:py-32"
+>
+	<div class="container mx-auto px-4 text-center">
+		<div
+			class="max-w-3xl mx-auto flex flex-col gap-6 animate-fade-in-up"
+			style="--anim-delay: 0.1s;"
+		>
+			<h1
+				class="text-4xl md:text-6xl font-display font-bold text-text-light dark:text-text-dark leading-tight"
 			>
-				<div
-					class="absolute inset-0 bg-primary/10 rounded-full blur-3xl z-0"
-				>
-				</div>
-				<Image
-					class="relative w-full max-w-md rounded-xl shadow-lg z-10"
-					alt="Imagen abstracta de tecnología y crecimiento"
-					src={heroImage}
-					width={600}
-					height={600}
-					format="webp"
-					quality={80}
-				/>
-			</div>
+				Tu negocio merece una web que <span class="text-primary"
+					>genere confianza y ventas</span
+				>.
+			</h1>
+
+			<p
+				class="text-lg md:text-xl font-body text-text-light/80 dark:text-text-dark/80"
+			>
+				Deja de perder clientes con una web genérica. Creamos la
+				presencia digital a medida que tu negocio en Bolivia y LATAM
+				necesita para crecer. Clara, profesional y directa.
+			</p>
+		</div>
+
+		<div
+			class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up"
+			style="--anim-delay: 0.3s;"
+		>
+			<Button href="/contact" size="lg" variant="primary">
+				Solicita tu Cotización
+			</Button>
+			<Button
+				href="https://wa.me/591XXXXXXXX"
+				size="lg"
+				variant="outline"
+			>
+				<Icon name="whatsapp" class="mr-2" />
+				Hablemos por WhatsApp
+			</Button>
 		</div>
 	</div>
-=======
-import Button from '../Button.astro';
-import Icon from '../Icon.astro';
----
-
-<section class="relative bg-background-light dark:bg-background-dark py-24 md:py-32">
-  <div class="container mx-auto px-4 text-center">
-
-    <div
-      class="max-w-3xl mx-auto flex flex-col gap-6 animate-fade-in-up"
-      style="--anim-delay: 0.1s;"
-    >
-      <h1 class="text-4xl md:text-6xl font-display font-bold text-text-light dark:text-text-dark leading-tight">
-        Tu negocio merece una web que <span class="text-primary">genere confianza y ventas</span>.
-      </h1>
-
-      <p class="text-lg md:text-xl font-body text-text-light/80 dark:text-text-dark/80">
-        Deja de perder clientes con una web genérica. Creamos la presencia digital a medida que tu negocio en Bolivia y LATAM necesita para crecer. Clara, profesional y directa.
-      </p>
-    </div>
-
-    <div
-      class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up"
-      style="--anim-delay: 0.3s;"
-    >
-      <Button href="/contact" size="lg" variant="primary">
-        Solicita tu Cotización
-      </Button>
-      <Button href="https://wa.me/591XXXXXXXX" size="lg" variant="outline">
-        <Icon name="whatsapp" class="mr-2" />
-        Hablemos por WhatsApp
-      </Button>
-    </div>
-
-  </div>
->>>>>>> 742e7da87898e31846289c2d783e3200a5c0347a
 </section>
 
 <style>

@@ -1,124 +1,100 @@
 ---
-<<<<<<< HEAD
 import Layout from "../layouts/Layout.astro";
 import FinalCTA from "../components/sections/FinalCTA.astro";
-// Reemplaza con una imagen real en tu carpeta /src/assets
-import teamImage from "../assets/team-placeholder.jpg";
+import Icon from "../components/Icon.astro";
 import { Image } from "astro:assets";
-=======
-import Layout from '../layouts/Layout.astro';
-import FinalCTA from '../components/sections/FinalCTA.astro';
-import Icon from '../components/Icon.astro';
-import { Image } from 'astro:assets';
 
 // Reemplaza esta imagen por una real si la tienes
-import founderImage from '../assets/team-placeholder.jpg';
+import founderImage from "../assets/team-placeholder.jpg";
 
 const principles = [
-  { icon: 'forum', title: 'Comunicación Clara', description: 'Hablamos tu idioma, no jerga técnica. Creemos en la transparencia total desde la primera charla.' },
-  { icon: 'groups', title: 'Relaciones a Largo Plazo', description: 'No solo creamos webs, creamos alianzas. Tu crecimiento es nuestro éxito.' },
-  { icon: 'verified', title: 'Calidad y Profesionalismo', description: 'Desde el diseño hasta el código, nos obsesiona entregar un trabajo del que estemos orgullosos.' },
+  {
+    icon: "forum",
+    title: "Comunicación Clara",
+    description:
+      "Hablamos tu idioma, no jerga técnica. Creemos en la transparencia total desde la primera charla.",
+  },
+  {
+    icon: "groups",
+    title: "Relaciones a Largo Plazo",
+    description:
+      "No solo creamos webs, creamos alianzas. Tu crecimiento es nuestro éxito.",
+  },
+  {
+    icon: "verified",
+    title: "Calidad y Profesionalismo",
+    description:
+      "Desde el diseño hasta el código, nos obsesiona entregar un trabajo del que estemos orgullosos.",
+  },
 ];
 
 const processSteps = [
-  { number: '01', title: 'Conversación Inicial', description: 'Escuchamos tu idea y tus metas. Sin compromiso.' },
-  { number: '02', title: 'Propuesta a Medida', description: 'Te presentamos un plan claro, con alcance y presupuesto definidos.' },
-  { number: '03', title: 'Diseño y Desarrollo', description: 'Creamos tu web, con revisiones periódicas para asegurar que todo vaya perfecto.' },
-  { number: '04', title: 'Lanzamiento y Soporte', description: 'Ponemos tu web en línea y te acompañamos en los siguientes pasos.' },
+  {
+    number: "01",
+    title: "Conversación Inicial",
+    description: "Escuchamos tu idea y tus metas. Sin compromiso.",
+  },
+  {
+    number: "02",
+    title: "Propuesta a Medida",
+    description:
+      "Te presentamos un plan claro, con alcance y presupuesto definidos.",
+  },
+  {
+    number: "03",
+    title: "Diseño y Desarrollo",
+    description:
+      "Creamos tu web, con revisiones periódicas para asegurar que todo vaya perfecto.",
+  },
+  {
+    number: "04",
+    title: "Lanzamiento y Soporte",
+    description:
+      "Ponemos tu web en línea y te acompañamos en los siguientes pasos.",
+  },
 ];
->>>>>>> 742e7da87898e31846289c2d783e3200a5c0347a
 ---
 
 <Layout title="Nosotros | Wiñay Tech">
-
   <!-- Sección Principal -->
   <section class="py-20 md:py-28 bg-background-light dark:bg-background-dark">
     <div class="container mx-auto px-4">
-<<<<<<< HEAD
-      <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+      <div
+        class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
+      >
         <div
-          class="flex flex-col gap-6 animate-fade-in-up"
+          class="text-center lg:text-left animate-fade-in-up"
           style="--anim-delay: 0.1s;"
         >
-          <h1 class="text-4xl md:text-5xl font-display font-bold">
-            Wiñay: <span class="text-primary">Crecimiento con identidad</span>
-          </h1>
-          <p
-            class="text-lg font-normal leading-relaxed text-text-light/80 dark:text-text-dark/80"
+          <h1
+            class="text-4xl md:text-5xl font-display font-bold text-text-light dark:text-text-dark"
           >
-            En quechua, **Wiñay** significa crecer y perdurar. En Wiñay Tech,
-            tomamos ese concepto para crear soluciones digitales que no solo
-            cumplen una función, sino que impulsan la evolución de las empresas
-            en Bolivia y toda Latinoamérica.
-          </p>
-
-          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 mt-4">
-            <div
-              class="flex flex-col gap-3 rounded-lg border border-primary/20 bg-background-light dark:bg-contrast-accent/50 p-4 transition-shadow hover:shadow-xl"
-            >
-              <span class="material-symbols-outlined text-3xl text-primary"
-                >spa</span
-              >
-              <div>
-                <h3 class="font-semibold font-display">Nuestra Filosofía</h3>
-                <p class="text-sm text-text-light/70 dark:text-text-dark/70">
-                  Inspirados en la geometría andina, construimos soluciones
-                  estructuradas y modulares que perduran.
-                </p>
-              </div>
-            </div>
-            <div
-              class="flex flex-col gap-3 rounded-lg border border-primary/20 bg-background-light dark:bg-contrast-accent/50 p-4 transition-shadow hover:shadow-xl"
-            >
-              <span class="material-symbols-outlined text-3xl text-primary"
-                >rocket_launch</span
-              >
-              <div>
-                <h3 class="font-semibold font-display">Visión Global</h3>
-                <p class="text-sm text-text-light/70 dark:text-text-dark/70">
-                  Somos una empresa boliviana con la visión de llevar soluciones
-                  de vanguardia a nivel global.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div
-          class="relative flex items-center justify-center animate-fade-in-up"
-          style="--anim-delay: 0.3s;"
-        >
-          <Image
-            class="relative w-full max-w-md rounded-xl shadow-lg border border-text-light/10"
-            alt="Equipo de Wiñay Tech colaborando en un entorno moderno."
-            src={teamImage}
-=======
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-
-        <div class="text-center lg:text-left animate-fade-in-up" style="--anim-delay: 0.1s;">
-          <h1 class="text-4xl md:text-5xl font-display font-bold text-text-light dark:text-text-dark">
-            Más que una agencia, somos tu <span class="text-primary">aliado digital</span> en Bolivia.
+            Más que una agencia, somos tu <span class="text-primary"
+              >aliado digital</span
+            > en Bolivia.
           </h1>
           <p class="mt-6 text-lg text-text-light/80 dark:text-text-dark/80">
-            Hola, soy Nicolás Cárdenas, fundador de Wiñay. Nací en Bolivia y entiendo nuestro mercado. Sé que la confianza y la comunicación clara son la base de cualquier buen negocio.
-            <br/><br/>
-            Wiñay existe para ayudar a negocios como el tuyo a tener una presencia digital de la que se sientan orgullosos, una que de verdad les ayude a crecer.
+            Hola, soy Nicolás Cárdenas, fundador de Wiñay. Nací en Bolivia y
+            entiendo nuestro mercado. Sé que la confianza y la comunicación
+            clara son la base de cualquier buen negocio.
+            <br /><br />
+            Wiñay existe para ayudar a negocios como el tuyo a tener una presencia
+            digital de la que se sientan orgullosos, una que de verdad les ayude a
+            crecer.
           </p>
         </div>
 
         <div class="relative animate-fade-in-up" style="--anim-delay: 0.3s;">
-          <Image 
+          <Image
             src={founderImage}
             alt="Fundador de Wiñay Tech"
             class="rounded-xl shadow-2xl w-full max-w-sm mx-auto lg:max-w-md border-4 border-accent-light dark:border-accent-soft"
->>>>>>> 742e7da87898e31846289c2d783e3200a5c0347a
             width={600}
             height={600}
             format="webp"
             quality={90}
           />
         </div>
-
       </div>
     </div>
   </section>
@@ -127,7 +103,9 @@ const processSteps = [
   <section class="py-20 md:py-28 bg-accent-light/50 dark:bg-accent-soft/20">
     <div class="container mx-auto px-4">
       <div class="text-center max-w-3xl mx-auto">
-        <h2 class="text-3xl md:text-4xl font-display font-bold text-text-light dark:text-text-dark">
+        <h2
+          class="text-3xl md:text-4xl font-display font-bold text-text-light dark:text-text-dark"
+        >
           Nuestros Principios
         </h2>
         <p class="mt-4 text-lg text-text-light/80 dark:text-text-dark/80">
@@ -135,13 +113,17 @@ const processSteps = [
         </p>
       </div>
       <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-        {principles.map(p => (
-          <div class="bg-background-light dark:bg-background-dark p-8 rounded-xl text-center shadow-lg">
-            <Icon name={p.icon} class="text-4xl text-primary mx-auto mb-4" />
-            <h3 class="text-xl font-display font-semibold mb-2">{p.title}</h3>
-            <p class="text-text-light/70 dark:text-text-dark/70">{p.description}</p>
-          </div>
-        ))}
+        {
+          principles.map((p) => (
+            <div class="bg-background-light dark:bg-background-dark p-8 rounded-xl text-center shadow-lg">
+              <Icon name={p.icon} class="text-4xl text-primary mx-auto mb-4" />
+              <h3 class="text-xl font-display font-semibold mb-2">{p.title}</h3>
+              <p class="text-text-light/70 dark:text-text-dark/70">
+                {p.description}
+              </p>
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>
@@ -149,8 +131,10 @@ const processSteps = [
   <!-- Sección de Proceso -->
   <section class="py-20 md:py-28 bg-background-light dark:bg-background-dark">
     <div class="container mx-auto px-4">
-       <div class="text-center max-w-3xl mx-auto">
-        <h2 class="text-3xl md:text-4xl font-display font-bold text-text-light dark:text-text-dark">
+      <div class="text-center max-w-3xl mx-auto">
+        <h2
+          class="text-3xl md:text-4xl font-display font-bold text-text-light dark:text-text-dark"
+        >
           Nuestro Proceso
         </h2>
         <p class="mt-4 text-lg text-text-light/80 dark:text-text-dark/80">
@@ -158,19 +142,24 @@ const processSteps = [
         </p>
       </div>
       <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        {processSteps.map(step => (
-          <div class="border-t-4 border-primary pt-6">
-            <p class="text-sm font-bold text-primary mb-2">{step.number}</p>
-            <h3 class="text-xl font-display font-semibold mb-2">{step.title}</h3>
-            <p class="text-text-light/70 dark:text-text-dark/70">{step.description}</p>
-          </div>
-        ))}
+        {
+          processSteps.map((step) => (
+            <div class="border-t-4 border-primary pt-6">
+              <p class="text-sm font-bold text-primary mb-2">{step.number}</p>
+              <h3 class="text-xl font-display font-semibold mb-2">
+                {step.title}
+              </h3>
+              <p class="text-text-light/70 dark:text-text-dark/70">
+                {step.description}
+              </p>
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>
 
   <FinalCTA />
-
 </Layout>
 
 <style>

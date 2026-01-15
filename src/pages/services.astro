@@ -1,239 +1,45 @@
 ---
-<<<<<<< HEAD
-// Importaciones
 import Layout from "../layouts/Layout.astro";
+import ServiceGrid from "../components/ServiceGrid.astro";
 import FinalCTA from "../components/sections/FinalCTA.astro";
+import Icon from "../components/Icon.astro";
 import TechCarousel from "../components/TechCarousel.astro";
 import Button from "../components/Button.astro";
 
-const basePlans = [
-  {
-    title: "Plan Landing Page",
-    focus:
-      "Ideal para emprendedores y negocios que quieren presencia rápida y efectiva.",
-    description:
-      "Una sola página con toda la información clave, diseñada para cargar rápido y convertir visitantes en clientes.",
-    features: [
-      "Una sola página (Landing Page)",
-      "Diseño responsivo (Adaptado a móviles)",
-      "Hosting y dominio por 1 año incluido",
-      "SEO Básico (Configuración para Google)",
-      "Botón directo a WhatsApp",
-    ],
-    cta: "Cotiza tu Landing Page",
-    icon: "rocket_launch",
-  },
-  {
-    title: "Plan Web Corporativa",
-    focus: "Pensado para empresas que buscan una imagen sólida y profesional.",
-    description:
-      "Web multi-página con secciones independientes para detallar cada aspecto de tu empresa o servicios.",
-    features: [
-      "Múltiples secciones (Inicio, Nosotros, Servicios, etc.)",
-      "Diseño profesional avanzado",
-      "Hosting y dominio por 1 año incluido",
-      "SEO Básico (Configuración para Google)",
-      "Integración con redes sociales",
-    ],
-    cta: "Cotiza tu Web Corporativa",
-    icon: "corporate_fare",
-  },
-];
-
-const additionalServices = [
-  {
-    title: "Pack Contacto Pro",
-    description:
-      "Formulario de contacto personalizado + botón directo a WhatsApp flotante.",
-    icon: "chat",
-  },
-  {
-    title: "SEO Avanzado",
-    description:
-      "Estrategia de posicionamiento para competir con otros negocios en los primeros resultados de Google.",
-    icon: "trending_up",
-  },
-  {
-    title: "Pack Analítica",
-    description:
-      "Instalación de Google Analytics y Pixel de Meta para medir el tráfico de tu web.",
-    icon: "query_stats",
-  },
-  {
-    title: "Copywriting",
-    description:
-      "Textos persuasivos enfocados en ventas escritos por profesionales.",
-    icon: "edit_note",
-  },
-  {
-    title: "Mantenimiento Mensual",
-    description:
-      "Seguridad, copias de respaldo y soporte técnico para que no te preocupes por nada.",
-    icon: "settings_suggest",
-  },
-  {
-    title: "Optimización de Carga",
-    description:
-      "Ajustes avanzados para que tu web cargue en segundos, incluso con internet lento en Bolivia.",
-    icon: "bolt",
-  },
-  {
-    title: "Correos Corporativos",
-    description:
-      "Correos profesionales (ej. info@tuempresa.com) para generar más confianza.",
-    icon: "mail",
-  },
-];
----
-
-<Layout title="Nuestros Planes | Wiñay Tech">
-  <!-- Hero Section -->
-  <section
-    class="py-20 md:py-32 bg-background-light dark:bg-background-dark overflow-hidden relative"
-  >
-    <div
-      class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 size-96 bg-primary/10 rounded-full blur-3xl"
-    >
-    </div>
-    <div class="container mx-auto px-4 relative z-10">
-      <div class="max-w-3xl mx-auto text-center">
-        <h1
-          class="text-4xl md:text-6xl font-bold font-display animate-fade-in-up"
-        >
-          Planes que se adaptan al <span class="text-primary"
-            >crecimiento de tu negocio</span
-          >
-        </h1>
-        <p
-          class="mt-6 text-xl text-text-light/80 dark:text-text-dark/80 font-body animate-fade-in-up"
-          style="--anim-delay: 0.1s;"
-        >
-          No te cobramos por cosas que no necesitas. Elige una base sólida y
-          potencia tu web con nuestros servicios adicionales según tu
-          requerimiento.
-=======
-import Layout from '../layouts/Layout.astro';
-import ServiceGrid from '../components/ServiceGrid.astro';
-import FinalCTA from '../components/sections/FinalCTA.astro';
-import Icon from '../components/Icon.astro';
-
 // Datos para la sección de "Packs y Adicionales"
 const additionalServices = [
-  { name: 'Pack Contacto Pro', icon: 'alternate_email' },
-  { name: 'SEO Básico', icon: 'rocket_launch' },
-  { name: 'Pack Analítica', icon: 'analytics' },
-  { name: 'Optimización de Carga', icon: 'speed' },
+  { name: "Pack Contacto Pro", icon: "alternate_email" },
+  { name: "SEO Básico", icon: "rocket_launch" },
+  { name: "Pack Analítica", icon: "analytics" },
+  { name: "Optimización de Carga", icon: "speed" },
 ];
 ---
 
 <Layout title="Servicios | Wiñay Tech">
-
   <!-- Encabezado de la Página -->
   <section class="py-20 md:py-28 bg-background-light dark:bg-background-dark">
     <div class="container mx-auto px-4 text-center">
       <div class="max-w-3xl mx-auto">
-        <h1 class="text-4xl md:text-5xl font-display font-bold text-text-light dark:text-text-dark animate-fade-in-up" style="--anim-delay: 0.1s;">
+        <h1
+          class="text-4xl md:text-5xl font-display font-bold text-text-light dark:text-text-dark animate-fade-in-up"
+          style="--anim-delay: 0.1s;"
+        >
           Planes y Servicios a tu Medida
         </h1>
-        <p class="mt-4 text-lg text-text-light/80 dark:text-text-dark/80 animate-fade-in-up" style="--anim-delay: 0.2s;">
-          Cada proyecto es único. Por eso, nuestros planes están diseñados como puntos de partida flexibles. Cuéntanos tu necesidad y creamos una propuesta a medida para ti.
->>>>>>> 742e7da87898e31846289c2d783e3200a5c0347a
+        <p
+          class="mt-4 text-lg text-text-light/80 dark:text-text-dark/80 animate-fade-in-up"
+          style="--anim-delay: 0.2s;"
+        >
+          Cada proyecto es único. Por eso, nuestros planes están diseñados como
+          puntos de partida flexibles. Cuéntanos tu necesidad y creamos una
+          propuesta a medida para ti.
         </p>
       </div>
     </div>
   </section>
 
-<<<<<<< HEAD
   <TechCarousel title="Herramientas de Última Generación" />
 
-  <!-- Base Plans -->
-  <section class="py-16 md:py-24 bg-white dark:bg-accent-dark">
-    <div class="container mx-auto px-4">
-      <h2
-        class="text-3xl font-bold font-display text-center mb-16 text-text-light dark:text-text-dark"
-      >
-        Nuestros Planes Base
-      </h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-        {
-          basePlans.map((plan, index) => (
-            <div
-              class="flex flex-col p-8 rounded-3xl border-2 border-accent-light dark:border-primary/20 bg-background-light dark:bg-background-dark shadow-lg hover:border-primary transition-all duration-300 animate-fade-in-up"
-              style={`--anim-delay: ${0.2 + index * 0.1}s;`}
-            >
-              <div class="size-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6">
-                <span class="material-symbols-outlined text-4xl">
-                  {plan.icon}
-                </span>
-              </div>
-              <h3 class="text-2xl font-bold font-display text-text-light dark:text-text-dark mb-2">
-                {plan.title}
-              </h3>
-              <p class="text-sm font-semibold text-primary mb-4 font-body">
-                {plan.focus}
-              </p>
-              <p class="text-text-light/70 dark:text-text-dark/70 font-body mb-8 leading-relaxed">
-                {plan.description}
-              </p>
-
-              <div class="space-y-4 mb-10 flex-grow">
-                {plan.features.map((feature) => (
-                  <div class="flex items-center gap-3">
-                    <span class="material-symbols-outlined text-primary text-xl font-bold">
-                      check
-                    </span>
-                    <p class="text-text-light/80 dark:text-text-dark/80 font-body text-sm font-medium">
-                      {feature}
-                    </p>
-                  </div>
-                ))}
-              </div>
-
-              <Button href="/contact" size="lg" class="w-full">
-                {plan.cta}
-              </Button>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <!-- Additional Services -->
-  <section class="py-16 md:py-24 bg-background-light dark:bg-background-dark">
-    <div class="container mx-auto px-4">
-      <div class="max-w-3xl mx-auto text-center mb-16">
-        <h2
-          class="text-3xl font-bold font-display text-text-light dark:text-text-dark mb-4"
-        >
-          ¿Quieres potenciar tu presencia aún más?
-        </h2>
-        <p class="text-lg text-text-light/70 dark:text-text-dark/70 font-body">
-          Agrega estos servicios a tu plan base según el tamaño y las
-          necesidades de tu proyecto.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {
-          additionalServices.map((service, index) => (
-            <div
-              class="p-6 rounded-2xl bg-white dark:bg-accent-dark border border-accent-light dark:border-primary/10 shadow-sm hover:shadow-md transition-shadow animate-fade-in-up"
-              style={`--anim-delay: ${0.4 + index * 0.05}s;`}
-            >
-              <span class="material-symbols-outlined text-primary text-3xl mb-4 block">
-                {service.icon}
-              </span>
-              <h4 class="text-lg font-bold font-display text-text-light dark:text-text-dark mb-2">
-                {service.title}
-              </h4>
-              <p class="text-sm text-text-light/70 dark:text-text-dark/70 font-body leading-relaxed">
-                {service.description}
-              </p>
-            </div>
-          ))
-        }
-=======
   <!-- Grilla de Servicios Principales -->
   <section class="py-16 md:py-24 bg-accent-light/50 dark:bg-accent-soft/20">
     <div class="container mx-auto px-4">
@@ -245,29 +51,36 @@ const additionalServices = [
   <section class="py-20 md:py-28 bg-background-light dark:bg-background-dark">
     <div class="container mx-auto px-4">
       <div class="text-center max-w-3xl mx-auto">
-        <h2 class="text-3xl md:text-4xl font-display font-bold text-text-light dark:text-text-dark">
+        <h2
+          class="text-3xl md:text-4xl font-display font-bold text-text-light dark:text-text-dark"
+        >
           Packs y Adicionales para Potenciar tu Web
         </h2>
         <p class="mt-4 text-lg text-text-light/80 dark:text-text-dark/80">
-          Complementa tu plan con herramientas clave para mejorar la comunicación, visibilidad y rendimiento de tu sitio.
+          Complementa tu plan con herramientas clave para mejorar la
+          comunicación, visibilidad y rendimiento de tu sitio.
         </p>
       </div>
-      <div class="mt-12 max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-        {additionalServices.map(service => (
-          <div class="flex flex-col items-center gap-3">
-            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
-              <Icon name={service.icon} class="text-3xl text-primary" />
+      <div
+        class="mt-12 max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
+      >
+        {
+          additionalServices.map((service) => (
+            <div class="flex flex-col items-center gap-3">
+              <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
+                <Icon name={service.icon} class="text-3xl text-primary" />
+              </div>
+              <p class="font-body font-semibold text-text-light dark:text-text-dark">
+                {service.name}
+              </p>
             </div>
-            <p class="font-body font-semibold text-text-light dark:text-text-dark">{service.name}</p>
-          </div>
-        ))}
->>>>>>> 742e7da87898e31846289c2d783e3200a5c0347a
+          ))
+        }
       </div>
     </div>
   </section>
 
   <FinalCTA />
-
 </Layout>
 
 <style>

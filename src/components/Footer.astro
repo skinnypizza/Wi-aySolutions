@@ -3,82 +3,38 @@ import Icon from "./Icon.astro";
 
 // src/components/Footer.astro
 const navLinks = [
-  { href: '/services', text: 'Servicios' },
-  { href: '/about', text: 'Nosotros' },
-  { href: '/contact', text: 'Contacto' },
+  { href: "/services", text: "Servicios" },
+  { href: "/about", text: "Nosotros" },
+  { href: "/contact", text: "Contacto" },
 ];
 
 const socialLinks = [
-  { href: '#', icon: 'brand_linkedin', label: 'LinkedIn' },
-  { href: '#', icon: 'brand_github', label: 'GitHub' },
-  { href: '#', icon: 'brand_instagram', label: 'Instagram' },
+  { href: "#", icon: "brand_linkedin", label: "LinkedIn" },
+  { href: "#", icon: "brand_github", label: "GitHub" },
+  { href: "#", icon: "brand_instagram", label: "Instagram" },
 ];
 ---
 
-<<<<<<< HEAD
-<footer class="bg-background-dark dark:bg-accent-dark text-text-dark/70">
-	<div class="container mx-auto px-4 py-12">
-		<div
-			class="flex flex-col items-center justify-between gap-8 md:flex-row"
-		>
-			<div class="flex items-center gap-3">
-				<div class="size-8 text-primary" set:html={logo} />
-				<h2 class="text-xl font-semibold leading-tight text-text-dark">
-					Wiñay Tech
-				</h2>
-			</div>
-			<nav
-				class="flex flex-wrap items-center justify-center gap-6 text-sm font-medium"
-			>
-				<a class="hover:text-primary transition-colors" href="/services"
-					>Nuestros Planes</a
-				>
-				<a class="hover:text-primary transition-colors" href="/about"
-					>Quiénes Somos</a
-				>
-				<a class="hover:text-primary transition-colors" href="/contact"
-					>Contacto</a
-				>
-			</nav>
-			<div class="flex items-center gap-4">
-				<a
-					class="text-text-dark/70 hover:text-primary transition-colors"
-					href="https://www.linkedin.com/in/nicolas-cardenas-luna-4231992a8"
-					aria-label="LinkedIn"
-				>
-					<Icon name="linkedin" />
-				</a>
-				<a
-					class="text-text-dark/70 hover:text-primary transition-colors"
-					href="https://github.com/skinnypizza"
-					aria-label="GitHub"
-				>
-					<Icon name="github" />
-				</a>
-			</div>
-		</div>
-		<div class="mt-8 border-t border-text-dark/10 pt-8 text-center text-sm">
-			<p>
-				© {new Date().getFullYear()} Wiñay Tech. Todos los derechos reservados.
-			</p>
-		</div>
-	</div>
-</footer>
-=======
 <footer class="bg-background-dark text-text-dark">
   <div class="container mx-auto px-4 py-16">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
-
+    <div
+      class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left"
+    >
       <!-- Logo y Descripción -->
       <div class="flex flex-col items-center md:items-start gap-4">
         <div class="flex items-center gap-2">
-          <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-background-dark font-brand font-extrabold text-xl">
+          <div
+            class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-background-dark font-brand font-extrabold text-xl"
+          >
             W
           </div>
-          <h2 class="text-2xl font-brand font-extrabold tracking-tighter">Wiñay</h2>
+          <h2 class="text-2xl font-brand font-extrabold tracking-tighter">
+            Wiñay
+          </h2>
         </div>
         <p class="text-text-dark/60 font-body max-w-xs">
-          Tecnología con raíces y visión. Creamos soluciones digitales que crecen contigo.
+          Tecnología con raíces y visión. Creamos soluciones digitales que
+          crecen contigo.
         </p>
       </div>
 
@@ -86,32 +42,52 @@ const socialLinks = [
       <div>
         <h3 class="font-display font-semibold text-lg mb-4">Navegación</h3>
         <nav class="flex flex-col gap-3">
-          {navLinks.map((link) => (
-            <a href={link.href} class="text-text-dark/80 hover:text-primary transition-colors">
-              {link.text}
-            </a>
-          ))}
+          {
+            navLinks.map((link) => (
+              <a
+                href={link.href}
+                class="text-text-dark/80 hover:text-primary transition-colors"
+              >
+                {link.text}
+              </a>
+            ))
+          }
         </nav>
       </div>
 
       <!-- Contacto y Redes Sociales -->
       <div>
         <h3 class="font-display font-semibold text-lg mb-4">Hablemos</h3>
-        <a href="mailto:info@winay.tech" class="block text-text-dark/80 hover:text-primary transition-colors">info@winay.tech</a>
-        <div class="flex justify-center md:justify-start items-center gap-4 mt-6">
-          {socialLinks.map((link) => (
-            <a href={link.href} aria-label={link.label} class="text-text-dark/80 hover:text-primary transition-colors">
-              <Icon name={link.icon} class="text-2xl" />
-            </a>
-          ))}
+        <a
+          href="mailto:info@winay.tech"
+          class="block text-text-dark/80 hover:text-primary transition-colors"
+          >info@winay.tech</a
+        >
+        <div
+          class="flex justify-center md:justify-start items-center gap-4 mt-6"
+        >
+          {
+            socialLinks.map((link) => (
+              <a
+                href={link.href}
+                aria-label={link.label}
+                class="text-text-dark/80 hover:text-primary transition-colors"
+              >
+                <Icon name={link.icon} class="text-2xl" />
+              </a>
+            ))
+          }
         </div>
       </div>
     </div>
   </div>
   <div class="bg-black/20">
-    <div class="container mx-auto px-4 py-4 text-center text-sm text-text-dark/50">
-      <p>&copy; {new Date().getFullYear()} Wiñay Tech. Hecho en Bolivia con ❤️ y ☕</p>
+    <div
+      class="container mx-auto px-4 py-4 text-center text-sm text-text-dark/50"
+    >
+      <p>
+        &copy; {new Date().getFullYear()} Wiñay Tech. Hecho en Bolivia con ❤️ y ☕
+      </p>
     </div>
   </div>
 </footer>
->>>>>>> 742e7da87898e31846289c2d783e3200a5c0347a
