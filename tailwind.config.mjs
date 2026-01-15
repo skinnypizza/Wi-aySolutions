@@ -5,27 +5,22 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				primary: {
-					DEFAULT: '#00ADBB',
-					dark: '#0097A7', // Un tono más oscuro para hover/focus
-				},
-				background: {
-					light: '#F8F9FA', // Un blanco ligeramente más suave
-					dark: '#1A202C', // Un gris carbón más estándar
-				},
-				text: {
-					light: '#2D3748', // Gris oscuro para texto claro
-					dark: '#E2E8F0',  // Gris claro para texto oscuro
-				},
-				accent: {
-					light: '#E2E8F0', // Un acento sutil para fondos claros
-					dark: '#2D3748',  // Un acento sutil para fondos oscuros
-				},
+				primary: '#00ADBS', // Turquesa
+				secondary: '#222831', // Gris carbón
+				'accent-light': '#EEEEEE', // Blanco humo
+				'accent-soft': '#393646', // Azul grisáceo
+				'complementary-mint': '#A3F7BF',
+				'complementary-gold': '#C5A158',
+				// Alias para el sistema de diseño
+				'background-light': '#EEEEEE',
+				'background-dark': '#222831',
+				'text-light': '#222831',
+				'text-dark': '#EEEEEE',
 			},
 			fontFamily: {
-				display: ['Source Sans 3', 'sans-serif'],
-				body: ['Manrope', 'sans-serif'],
-				brand: ['Nunito Sans', 'sans-serif'], // Fuente específica para la marca
+				display: ['Source Sans Pro', 'sans-serif'], // Para títulos (headings)
+				body: ['Manrope', 'sans-serif'], // Para texto de cuerpo
+				brand: ['Nunito Sans', 'sans-serif'], // Para el logotipo o marca
 			},
 			keyframes: {
 				'fade-in-up': {
