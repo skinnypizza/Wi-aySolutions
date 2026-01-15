@@ -1,0 +1,75 @@
+
+> web-wayna@0.0.1 dev
+> astro dev
+
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+19:42:10 [types] Generated 1ms
+19:42:10 [content] Syncing content
+19:42:10 [content] Synced content
+19:42:10 [vite] Re-optimizing dependencies because vite config has changed
+
+ astro  v5.15.3 ready in 525 ms
+
+┃ Local    http://localhost:4321/
+┃ Network  use --host to expose
+
+19:42:10 watching for file changes...
+
+ update  ▶ New version of Astro available: 5.16.9
+  Run npx @astrojs/upgrade to update
+
+19:42:53 [200] / 291ms
+19:42:54 [404] /scripts/alpine.js 11ms
+19:43:16 [200] / 8ms
+19:43:16 [404] /scripts/alpine.js 8ms
+19:43:17 [200] /services 13ms
+19:43:17 [200] /services 8ms
+19:43:18 [200] /about 12ms
+19:43:18 [200] /about 8ms
+19:43:19 [200] /_image 116ms
+19:43:42 [watch] src/components/sections/Hero.astro
+19:43:48 [watch] src/components/sections/FinalCTA.astro
+19:43:48 [watch] src/components/sections/FinalCTA.astro
+19:43:53 [watch] src/pages/contact.astro
+19:43:53 [watch] src/pages/contact.astro
+19:43:58 [200] / 49ms
+19:43:58 [404] /scripts/alpine.js 11ms
+19:43:59 [200] /services 9ms
+19:43:59 [200] /services 11ms
+19:43:59 [200] /about 9ms
+19:44:00 [200] /about 10ms
+19:44:00 [200] /_image 59ms
+19:44:28 [200] / 6ms
+19:44:28 [404] /scripts/alpine.js 5ms
+19:44:29 [200] /services 8ms
+19:44:29 [200] /services 7ms
+19:44:30 [200] /about 8ms
+19:44:30 [200] /_image 56ms
+19:45:01 [200] / 5ms
+19:45:01 [404] /scripts/alpine.js 5ms
+19:45:01 [200] /services 11ms
+19:45:01 [200] /services 9ms
+19:45:52 [200] / 6ms
+19:45:52 [404] /scripts/alpine.js 5ms
+19:45:53 [200] /services 7ms
+19:45:53 [200] /services 6ms
+19:45:53 [200] /about 7ms
+19:45:53 [200] /about 7ms
+19:45:54 [200] /_image 56ms
+19:47:58 [200] / 6ms
+19:47:58 [404] /scripts/alpine.js 5ms
+19:47:58 [200] /services 6ms
+19:47:58 [200] /services 8ms
+19:47:59 [200] /about 11ms
+19:47:59 [200] /about 7ms
+19:47:59 [200] /_image 59ms
+19:47:59 [200] /contact 10ms
+19:47:59 [200] /contact 5ms
+19:48:44 [200] / 5ms
+19:48:44 [404] /scripts/alpine.js 5ms
+19:48:44 [200] /services 7ms
+19:48:45 [200] /services 5ms
+19:48:45 [200] /about 7ms
+19:48:45 [200] /about 8ms
+19:48:45 [200] /_image 56ms
+19:48:45 [200] /contact 6ms

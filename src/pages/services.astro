@@ -1,96 +1,59 @@
 ---
-// Importaciones
 import Layout from '../layouts/Layout.astro';
+import ServiceGrid from '../components/ServiceGrid.astro';
 import FinalCTA from '../components/sections/FinalCTA.astro';
-import TechCarousel from '../components/TechCarousel.astro'; // <-- NUEVA IMPORTACIÓN
+import Icon from '../components/Icon.astro';
 
-const serviceGroups = [
-  {
-    title: "Desarrollo Web",
-    icon: "laptop_windows",
-    description: "Desde Landing Pages optimizadas hasta Sistemas Web Empresariales y APIs REST.",
-    services: [
-      "Landing Pages personalizadas y optimizadas para campañas",
-      "Sistemas Web Empresariales (CRM, ERP, Inventario)",
-      "E-commerce y tiendas online personalizadas",
-      "Aplicaciones Web Progresivas (PWA)",
-      "APIs REST y sistemas integrados",
-    ]
-  },
-  {
-    title: "Automatización e Integraciones",
-    icon: "robot_2",
-    description: "Conectamos tu software y hardware para optimizar flujos de trabajo, eliminando tareas repetitivas.",
-    services: [
-      "Automatización de procesos empresariales (ventas, correos, redes sociales)",
-      "Integración de sistemas (ej. Google Sheets con WhatsApp)",
-      "Bots y asistentes automatizados para atención al cliente",
-      "Conexiones entre software empresarial y hardware IoT (sensores, ESP32)",
-    ]
-  },
-  {
-    title: "Desarrollo Móvil",
-    icon: "phone_android",
-    description: "Aplicaciones nativas e intuitivas que conectan con tus usuarios y controlan hardware inteligente.",
-    services: [
-      "Aplicaciones Android nativas en Kotlin",
-      "Apps conectadas con hardware IoT (ESP32, MQTT) para control de dispositivos inteligentes",
-      "Prototipado rápido de apps empresariales y educativas",
-    ]
-  },
-  {
-    title: "Branding y Digitalización",
-    icon: "design_services",
-    description: "Construimos tu identidad de marca y te posicionamos estratégicamente en el mundo digital.",
-    services: [
-      "Diseño web moderno y responsivo con enfoque UX/UI",
-      "Identidad visual, branding y manual de marca",
-      "Optimización SEO y posicionamiento web",
-      "Campañas publicitarias segmentadas (Meta Ads y Google Ads)",
-    ]
-  },
+// Datos para la sección de "Packs y Adicionales"
+const additionalServices = [
+  { name: 'Pack Contacto Pro', icon: 'alternate_email' },
+  { name: 'SEO Básico', icon: 'rocket_launch' },
+  { name: 'Pack Analítica', icon: 'analytics' },
+  { name: 'Optimización de Carga', icon: 'speed' },
 ];
 ---
 
 <Layout title="Servicios | Wiñay Tech">
-  <section class="py-20 md:py-32 bg-background-light dark:bg-background-dark">
+
+  <!-- Encabezado de la Página -->
+  <section class="py-20 md:py-28 bg-background-light dark:bg-background-dark">
     <div class="container mx-auto px-4 text-center">
-      <h1 class="text-4xl md:text-5xl font-display font-bold animate-fade-in-up" style="--anim-delay: 0.1s;">
-        Soluciones Modulares para tu Crecimiento
-      </h1>
-      <p class="mt-4 max-w-3xl mx-auto text-lg text-text-light/80 dark:text-text-dark/80 animate-fade-in-up" style="--anim-delay: 0.2s;">
-        Nuestra tecnología se inspira en la **precisión andina** para construir sistemas escalables y duraderos, fusionando nuestras raíces con tecnología de vanguardia.
-      </p>
+      <div class="max-w-3xl mx-auto">
+        <h1 class="text-4xl md:text-5xl font-display font-bold text-text-light dark:text-text-dark animate-fade-in-up" style="--anim-delay: 0.1s;">
+          Planes y Servicios a tu Medida
+        </h1>
+        <p class="mt-4 text-lg text-text-light/80 dark:text-text-dark/80 animate-fade-in-up" style="--anim-delay: 0.2s;">
+          Cada proyecto es único. Por eso, nuestros planes están diseñados como puntos de partida flexibles. Cuéntanos tu necesidad y creamos una propuesta a medida para ti.
+        </p>
+      </div>
     </div>
   </section>
-  
-  <TechCarousel title="Tecnología de Vanguardia: Backend, Mobile, Bases de Datos e IoT" />
-  
-  <section class="py-16 md:py-24 bg-contrast-accent dark:bg-background-dark/90">
-    <div class="container mx-auto px-4">
-      <div class="space-y-16">
-        {serviceGroups.map((group, groupIndex) => (
-          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start animate-fade-in-up" style={`--anim-delay: ${0.3 + groupIndex * 0.2}s;`}>
-            
-            <div class="lg:sticky lg:top-24 flex flex-col gap-4 p-6 rounded-xl border-t-4 border-primary shadow-lg bg-background-light dark:bg-contrast-accent/50 transform hover:scale-[1.02] transition-transform duration-300">
-              <span class="material-symbols-outlined text-5xl text-primary">{group.icon}</span>
-              <h2 class="text-2xl font-display font-semibold">{group.title}</h2>
-              <p class="text-sm text-text-light/70 dark:text-text-dark/70">{group.description}</p>
-            </div>
 
-            <div class="lg:col-span-2 space-y-4">
-              {group.services.map((service) => (
-                <div class="flex items-start gap-4 p-4 rounded-lg bg-background-light dark:bg-background-dark/50 border border-text-light/10 shadow-sm hover:border-primary transition-colors">
-                  <span class="material-symbols-outlined text-primary mt-1 text-xl">check_circle</span>
-                  <p class="text-base font-body">{service}</p>
-                </div>
-              ))}
-              {group.title === "Desarrollo Web" && (
-                <blockquote class="pl-4 border-l-4 border-primary/50 text-sm italic text-text-light/60 dark:text-text-dark/60 mt-6">
-                  "Utilizamos bases de datos robustas como MySQL, MongoDB y SQL Server." [cite: 59]
-                </blockquote>
-              )}
+  <!-- Grilla de Servicios Principales -->
+  <section class="py-16 md:py-24 bg-accent-light/50 dark:bg-accent-soft/20">
+    <div class="container mx-auto px-4">
+      <ServiceGrid />
+    </div>
+  </section>
+
+  <!-- Sección de Adicionales -->
+  <section class="py-20 md:py-28 bg-background-light dark:bg-background-dark">
+    <div class="container mx-auto px-4">
+      <div class="text-center max-w-3xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-display font-bold text-text-light dark:text-text-dark">
+          Packs y Adicionales para Potenciar tu Web
+        </h2>
+        <p class="mt-4 text-lg text-text-light/80 dark:text-text-dark/80">
+          Complementa tu plan con herramientas clave para mejorar la comunicación, visibilidad y rendimiento de tu sitio.
+        </p>
+      </div>
+      <div class="mt-12 max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        {additionalServices.map(service => (
+          <div class="flex flex-col items-center gap-3">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
+              <Icon name={service.icon} class="text-3xl text-primary" />
             </div>
+            <p class="font-body font-semibold text-text-light dark:text-text-dark">{service.name}</p>
           </div>
         ))}
       </div>
@@ -98,10 +61,10 @@ const serviceGroups = [
   </section>
 
   <FinalCTA />
+
 </Layout>
 
 <style>
-  /* Reutilizamos la animación definida en tailwind.config.mjs */
   .animate-fade-in-up {
     animation: fade-in-up 0.6s ease-out forwards;
     animation-delay: var(--anim-delay, 0s);

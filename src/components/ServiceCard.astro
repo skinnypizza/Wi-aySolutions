@@ -1,0 +1,54 @@
+---
+// src/components/ServiceCard.astro
+import Icon from './Icon.astro';
+import Button from './Button.astro';
+
+interface Feature {
+  text: string;
+  icon: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  audience: string;
+  features: Feature[];
+  ctaText: string;
+  ctaLink: string;
+}
+
+const { title, description, audience, features, ctaText, ctaLink } = Astro.props;
+---
+
+<div class="flex flex-col h-full bg-background-light dark:bg-background-dark border border-accent-light/20 dark:border-accent-soft/20 rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+  <div class="p-8 flex-grow">
+
+    <h3 class="text-2xl font-display font-bold text-text-light dark:text-text-dark mb-2">
+      {title}
+    </h3>
+
+    <p class="font-body text-primary font-semibold mb-4">
+      Para: {audience}
+    </p>
+
+    <p class="font-body text-text-light/80 dark:text-text-dark/80 mb-6">
+      {description}
+    </p>
+
+    <ul class="space-y-3">
+      {features.map(feature => (
+        <li class="flex items-start gap-3">
+          <Icon name={feature.icon} class="text-primary text-xl mt-1 flex-shrink-0" />
+          <span class="font-body text-text-light/90 dark:text-text-dark/90">{feature.text}</span>
+        </li>
+      ))}
+    </ul>
+
+  </div>
+
+  <div class="bg-accent-light/50 dark:bg-accent-soft/20 p-6 mt-auto">
+    <Button href={ctaLink} class="w-full" variant="primary">
+      {ctaText}
+    </Button>
+  </div>
+</div>
