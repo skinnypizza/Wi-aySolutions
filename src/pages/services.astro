@@ -1,92 +1,394 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import ServiceGrid from "../components/ServiceGrid.astro";
 import FinalCTA from "../components/sections/FinalCTA.astro";
-import Icon from "../components/Icon.astro";
-import TechCarousel from "../components/TechCarousel.astro";
 import Button from "../components/Button.astro";
+import Icon from "../components/Icon.astro";
 
-// Datos para la sección de "Packs y Adicionales"
-const additionalServices = [
-  { name: "Pack Contacto Pro", icon: "alternate_email" },
-  { name: "SEO Básico", icon: "rocket_launch" },
-  { name: "Pack Analítica", icon: "analytics" },
-  { name: "Optimización de Carga", icon: "speed" },
+const basePlans = [
+  {
+    title: "Plan Landing Page",
+    tag: "Sencillo y Veloz",
+    description:
+      "Una sola página con toda la información clave, diseñada para cargar rápido y convertir visitantes en clientes.",
+    features: [
+      "Página única (One-Page) optimizada",
+      "Hosting + Dominio incluido",
+    ],
+    cta: "Cotización a medida",
+    icon: "rocket_launch",
+    highlight: false,
+  },
+  {
+    title: "Plan Corporativo",
+    tag: "Más Robusto",
+    description:
+      "Web multi-página con secciones independientes para detallar cada aspecto de tu empresa o servicios.",
+    features: [
+      "Multi-página (Vistas independientes)",
+      "Mayor capacidad de contenido",
+    ],
+    cta: "Solicitar presupuesto",
+    icon: "corporate_fare",
+    highlight: true,
+  },
+];
+
+const extraServices = [
+  { title: "Optimización Mobile+", icon: "smartphone", color: "text-blue-500" },
+  { title: "Pack de Contacto", icon: "chat", color: "text-green-500" },
+  { title: "SEO Avanzado", icon: "trending_up", color: "text-purple-500" },
+  { title: "Copywriting", icon: "edit_note", color: "text-orange-500" },
+  { title: "Correos Corp.", icon: "mail", color: "text-red-500" },
+  { title: "Analítica Web", icon: "query_stats", color: "text-blue-400" },
+  { title: "Optimización de Carga", icon: "bolt", color: "text-yellow-500" },
 ];
 ---
 
-<Layout title="Servicios | Wiñay Tech">
-  <!-- Encabezado de la Página -->
-  <section class="py-20 md:py-28 bg-background-light dark:bg-background-dark">
-    <div class="container mx-auto px-4 text-center">
-      <div class="max-w-3xl mx-auto">
-        <h1
-          class="text-4xl md:text-5xl font-display font-bold text-text-light dark:text-text-dark animate-fade-in-up"
-          style="--anim-delay: 0.1s;"
-        >
-          Planes y Servicios a tu Medida
-        </h1>
-        <p
-          class="mt-4 text-lg text-text-light/80 dark:text-text-dark/80 animate-fade-in-up"
-          style="--anim-delay: 0.2s;"
-        >
-          Cada proyecto es único. Por eso, nuestros planes están diseñados como
-          puntos de partida flexibles. Cuéntanos tu necesidad y creamos una
-          propuesta a medida para ti.
-        </p>
-      </div>
+<Layout title="Nuestros Planes | Wiñay Tech">
+  <!-- Slide 1: El Gancho -->
+  <section
+    class="min-h-[80vh] flex items-center justify-center relative overflow-hidden py-20"
+  >
+    <!-- Blobs de fondo (Premium) -->
+    <div
+      class="absolute -top-24 -left-24 w-96 h-96 bg-primary/10 rounded-full blur-[80px] animate-pulse"
+    >
     </div>
-  </section>
-
-  <TechCarousel title="Herramientas de Última Generación" />
-
-  <!-- Grilla de Servicios Principales -->
-  <section class="py-16 md:py-24 bg-accent-light/50 dark:bg-accent-soft/20">
-    <div class="container mx-auto px-4">
-      <ServiceGrid />
+    <div
+      class="absolute -bottom-24 -right-24 w-96 h-96 bg-purple-500/10 rounded-full blur-[80px] animate-pulse"
+      style="animation-delay: 2s;"
+    >
     </div>
-  </section>
 
-  <!-- Sección de Adicionales -->
-  <section class="py-20 md:py-28 bg-background-light dark:bg-background-dark">
-    <div class="container mx-auto px-4">
-      <div class="text-center max-w-3xl mx-auto">
-        <h2
-          class="text-3xl md:text-4xl font-display font-bold text-text-light dark:text-text-dark"
-        >
-          Packs y Adicionales para Potenciar tu Web
-        </h2>
-        <p class="mt-4 text-lg text-text-light/80 dark:text-text-dark/80">
-          Complementa tu plan con herramientas clave para mejorar la
-          comunicación, visibilidad y rendimiento de tu sitio.
-        </p>
-      </div>
+    <div class="container mx-auto px-4 relative z-10 text-center">
       <div
-        class="mt-12 max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
+        class="inline-block px-4 py-1 bg-primary/10 rounded-full mb-8 animate-fade-in-up"
       >
+        <span class="text-primary font-bold tracking-widest uppercase text-xs"
+          >Wiñay Software</span
+        >
+      </div>
+
+      <div
+        class="flex justify-center mb-10 animate-fade-in-up"
+        style="--anim-delay: 0.2s;"
+      >
+        <div
+          class="w-24 h-24 rounded-[2rem] bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center text-white text-5xl shadow-2xl shadow-primary/20 floating"
+        >
+          <Icon name="fa-solid fa-rocket" />
+        </div>
+      </div>
+
+      <h2
+        class="text-text-light/60 dark:text-text-dark/60 font-semibold text-xl uppercase mb-4 animate-fade-in-up"
+        style="--anim-delay: 0.3s;"
+      >
+        ¿Tu negocio aún no es
+      </h2>
+      <h1
+        class="text-5xl md:text-7xl font-extrabold mb-8 animate-fade-in-up"
+        style="--anim-delay: 0.4s;"
+      >
+        <span
+          class="bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent"
+          >100% Digital?</span
+        >
+      </h1>
+      <p
+        class="text-text-light/80 dark:text-text-dark/80 text-xl mb-12 max-w-2xl mx-auto animate-fade-in-up"
+        style="--anim-delay: 0.5s;"
+      >
+        Cotiza tu sitio web hoy mismo.<br />
+        <b class="text-text-light dark:text-text-dark"
+          >Rápido, fácil y a medida.</b
+        >
+      </p>
+
+      <div
+        class="flex justify-center animate-fade-in-up"
+        style="--anim-delay: 0.6s;"
+      >
+        <Button
+          href="#planes"
+          variant="primary"
+          size="lg"
+          class="shadow-xl shadow-primary/20"
+        >
+          Ver nuestros planes <Icon
+            name="arrow_downward"
+            isMaterial
+            class="ml-2"
+          />
+        </Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 2: Planes Principales -->
+  <section id="planes" class="py-24 bg-white dark:bg-accent-dark/30 relative">
+    <div class="container mx-auto px-4">
+      <h3
+        class="text-3xl md:text-5xl font-extrabold text-center mb-16 animate-fade-in-up"
+      >
+        Nuestros Planes
+      </h3>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
         {
-          additionalServices.map((service) => (
-            <div class="flex flex-col items-center gap-3">
-              <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
-                <Icon name={service.icon} class="text-3xl text-primary" />
+          basePlans.map((plan, index) => (
+            <div
+              class={`relative p-8 rounded-[2.5rem] border-2 transition-all duration-500 hover:scale-[1.02] animate-fade-in-up ${plan.highlight ? "border-purple-200 dark:border-purple-900 shadow-xl shadow-purple-500/5 bg-gradient-to-b from-white to-purple-50 dark:from-background-dark dark:to-purple-900/10" : "border-primary/20 bg-background-light dark:bg-background-dark shadow-lg shadow-black/5"}`}
+              style={`--anim-delay: ${0.2 + index * 0.2}s;`}
+            >
+              <span
+                class={`absolute top-6 right-8 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider ${plan.highlight ? "bg-purple-100 text-purple-600" : "bg-primary/10 text-primary"}`}
+              >
+                {plan.tag}
+              </span>
+
+              <div
+                class={`size-14 rounded-2xl flex items-center justify-center mb-8 ${plan.highlight ? "bg-purple-500 text-white" : "bg-primary text-white"}`}
+              >
+                <Icon name={plan.icon} isMaterial class="text-3xl" />
               </div>
-              <p class="font-body font-semibold text-text-light dark:text-text-dark">
-                {service.name}
+
+              <h4 class="text-2xl font-bold mb-2">{plan.title}</h4>
+              <div
+                class={`inline-block px-3 py-1 rounded-lg font-bold text-sm mb-6 ${plan.highlight ? "bg-purple-100 text-purple-600" : "bg-primary/10 text-primary"}`}
+              >
+                {plan.cta}
+              </div>
+
+              <p class="text-text-light/70 dark:text-text-dark/70 text-sm mb-8 leading-relaxed">
+                {plan.description}
               </p>
+
+              <ul class="space-y-4 mb-10">
+                {plan.features.map((feature) => (
+                  <li class="flex items-center gap-3 text-sm font-medium">
+                    <div
+                      class={`size-5 rounded-full flex items-center justify-center ${plan.highlight ? "bg-purple-500" : "bg-primary"}`}
+                    >
+                      <Icon
+                        name="check"
+                        isMaterial
+                        class="text-[12px] text-white"
+                      />
+                    </div>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+
+              <Button
+                href="/contact"
+                variant={plan.highlight ? "primary" : "outline"}
+                class="w-full"
+              >
+                Saber más
+              </Button>
             </div>
           ))
         }
       </div>
+
+      <p
+        class="text-center text-[10px] text-text-light/40 dark:text-text-dark/40 mt-12 uppercase font-black tracking-[0.2em] animate-fade-in-up"
+      >
+        Calculamos el precio según el alcance de tu empresa
+      </p>
     </div>
   </section>
 
-  <FinalCTA />
+  <!-- Slide 3: Complementos -->
+  <section
+    class="py-24 bg-background-light dark:bg-background-dark overflow-hidden"
+  >
+    <div class="container mx-auto px-4 max-w-4xl">
+      <div class="text-center mb-12 animate-fade-in-up">
+        <h3 class="text-3xl md:text-5xl font-extrabold mb-4">
+          Servicios Extra
+        </h3>
+        <p class="text-lg text-text-light/60 dark:text-text-dark/60">
+          Potencia tu web con estos complementos
+        </p>
+      </div>
+
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 gap-4 animate-fade-in-up"
+        style="--anim-delay: 0.2s;"
+      >
+        {
+          extraServices.map((service, index) => (
+            <div
+              class={`flex items-center gap-4 p-5 rounded-2xl bg-white dark:bg-accent-dark border border-text-light/5 shadow-sm hover:shadow-md transition-shadow group ${index === 6 ? "sm:col-span-2" : ""}`}
+            >
+              <div
+                class={`size-12 rounded-xl bg-background-light dark:bg-background-dark flex items-center justify-center shadow-inner group-hover:scale-110 transition-transform`}
+              >
+                <Icon
+                  name={service.icon}
+                  isMaterial
+                  class={`text-2xl ${service.color}`}
+                />
+              </div>
+              <h5 class="font-bold text-text-light dark:text-text-dark">
+                {service.title}
+              </h5>
+            </div>
+          ))
+        }
+      </div>
+
+      <div
+        class="mt-16 bg-gradient-to-r from-primary to-purple-600 p-8 rounded-[2rem] text-center text-white shadow-2xl shadow-primary/20 animate-fade-in-up"
+        style="--anim-delay: 0.4s;"
+      >
+        <p class="text-lg md:text-xl font-bold uppercase tracking-widest mb-4">
+          ¡Pide tu cotización gratis en segundos!
+        </p>
+        <Button
+          href="/contact"
+          variant="outline"
+          class="!bg-white !text-primary border-none hover:!bg-background-light"
+        >
+          Cotizar Ahora
+        </Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 4: Cierre -->
+  <section class="py-24 bg-background-dark text-white relative overflow-hidden">
+    <!-- Efecto de luz de fondo -->
+    <div
+      class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-primary/5 rounded-full blur-[120px]"
+    >
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10">
+      <div
+        class="flex flex-col items-center justify-center text-center max-w-2xl mx-auto"
+      >
+        <div
+          class="w-20 h-20 bg-primary rounded-3xl flex items-center justify-center text-4xl mb-8 shadow-2xl shadow-primary/20 animate-fade-in-up"
+        >
+          <Icon name="fa-solid fa-paper-plane" />
+        </div>
+
+        <h3
+          class="text-4xl md:text-6xl font-extrabold mb-4 animate-fade-in-up"
+          style="--anim-delay: 0.1s;"
+        >
+          ¡Empecemos hoy!
+        </h3>
+        <p
+          class="text-text-dark/60 text-lg mb-12 px-6 animate-fade-in-up"
+          style="--anim-delay: 0.2s;"
+        >
+          Mándanos un mensaje y recibe tu presupuesto personalizado <b
+            class="text-white text-xl block mt-2">sin compromiso.</b
+          >
+        </p>
+
+        <div
+          class="w-full space-y-4 px-4 animate-fade-in-up"
+          style="--anim-delay: 0.3s;"
+        >
+          <a
+            href="https://wa.me/59171531944"
+            target="_blank"
+            class="flex items-center gap-6 bg-white/5 hover:bg-white/10 p-6 rounded-[2rem] border border-white/10 transition-all hover:scale-[1.02] group"
+          >
+            <div
+              class="size-14 rounded-2xl bg-green-500/20 flex items-center justify-center text-green-400 text-3xl group-hover:scale-110 transition-transform"
+            >
+              <Icon name="fa-brands fa-whatsapp" />
+            </div>
+            <div class="text-left">
+              <p
+                class="text-[10px] text-white/40 uppercase font-black tracking-widest mb-1"
+              >
+                Respuesta Rápida
+              </p>
+              <p class="font-bold text-xl">+591 71531944</p>
+            </div>
+            <Icon
+              name="arrow_forward"
+              isMaterial
+              class="ml-auto text-white/20 group-hover:text-white transition-colors"
+            />
+          </a>
+
+          <a
+            href="mailto:en.cl@hotmail.com"
+            class="flex items-center gap-6 bg-white/5 hover:bg-white/10 p-6 rounded-[2rem] border border-white/10 transition-all hover:scale-[1.02] group"
+          >
+            <div
+              class="size-14 rounded-2xl bg-primary/20 flex items-center justify-center text-primary text-3xl group-hover:scale-110 transition-transform"
+            >
+              <Icon name="fa-solid fa-envelope" />
+            </div>
+            <div class="text-left">
+              <p
+                class="text-[10px] text-white/40 uppercase font-black tracking-widest mb-1"
+              >
+                Consultas Directas
+              </p>
+              <p class="font-bold text-xl">en.cl@hotmail.com</p>
+            </div>
+            <Icon
+              name="arrow_forward"
+              isMaterial
+              class="ml-auto text-white/20 group-hover:text-white transition-colors"
+            />
+          </a>
+        </div>
+
+        <div class="mt-16 animate-fade-in-up" style="--anim-delay: 0.5s;">
+          <p class="text-sm text-text-dark/40 font-medium">
+            Ethan Nicolas Cardenas Luna | Winay Software
+          </p>
+          <div
+            class="h-1.5 w-16 bg-gradient-to-r from-primary to-purple-500 mx-auto mt-4 rounded-full"
+          >
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>
 
 <style>
+  .floating {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+  }
+
   .animate-fade-in-up {
-    animation: fade-in-up 0.6s ease-out forwards;
+    animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     animation-delay: var(--anim-delay, 0s);
     opacity: 0;
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 </style>

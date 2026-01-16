@@ -172,7 +172,7 @@ import Button from "../components/Button.astro";
                             <button
                                 type="submit"
                                 :disabled="loading"
-                                class="w-full flex justify-center items-center h-12 px-6 rounded-lg bg-primary text-text-dark font-bold hover:bg-opacity-90 transition-all transform hover:scale-[1.02] disabled:opacity-50"
+                                class="w-full flex justify-center items-center h-12 px-6 rounded-lg bg-primary text-white font-bold hover:bg-primary-dark transition-all transform hover:scale-[1.02] disabled:opacity-50 shadow-lg shadow-primary/20"
                             >
                                 <span x-show="!loading">Enviar Mensaje</span>
                                 <span x-show="loading">Enviando...</span>
@@ -187,7 +187,7 @@ import Button from "../components/Button.astro";
                         class="bg-primary/10 dark:bg-accent-soft/20 p-6 rounded-xl"
                     >
                         <Icon
-                            name="whatsapp"
+                            name="fa-brands fa-whatsapp"
                             class="text-3xl text-primary mb-3"
                         />
                         <h3 class="text-xl font-display font-semibold mb-2">
@@ -200,7 +200,7 @@ import Button from "../components/Button.astro";
                             para consultas rápidas.
                         </p>
                         <a
-                            href="https://wa.me/591XXXXXXXX"
+                            href="https://wa.me/59171531944"
                             target="_blank"
                             class="font-bold text-primary hover:underline"
                         >
@@ -210,7 +210,10 @@ import Button from "../components/Button.astro";
                     <div
                         class="bg-primary/10 dark:bg-accent-soft/20 p-6 rounded-xl"
                     >
-                        <Icon name="mail" class="text-3xl text-primary mb-3" />
+                        <Icon
+                            name="fa-solid fa-envelope"
+                            class="text-3xl text-primary mb-3"
+                        />
                         <h3 class="text-xl font-display font-semibold mb-2">
                             Correo Electrónico
                         </h3>
@@ -221,10 +224,10 @@ import Button from "../components/Button.astro";
                             escribir con calma.
                         </p>
                         <a
-                            href="mailto:info@winay.tech"
+                            href="mailto:en.cl@hotmail.com"
                             class="font-bold text-primary hover:underline"
                         >
-                            info@winay.tech
+                            en.cl@hotmail.com
                         </a>
                     </div>
                 </div>

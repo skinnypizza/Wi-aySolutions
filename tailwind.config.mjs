@@ -5,8 +5,10 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				primary: '#00ADBS', // Turquesa
-				secondary: '#222831', // Gris carbón
+				primary: {
+					DEFAULT: '#007B88',
+					dark: '#006670', // Un tono más oscuro para hover/focus
+				},
 				'accent-light': '#EEEEEE', // Blanco humo
 				'accent-soft': '#393646', // Azul grisáceo
 				'complementary-mint': '#A3F7BF',

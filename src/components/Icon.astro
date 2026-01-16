@@ -3,23 +3,39 @@
 interface Props {
   name: string;
   class?: string;
-  'aria-label'?: string;
+  "aria-label"?: string;
   isMaterial?: boolean;
 }
 
 const {
   name,
   class: className,
-  'aria-label': ariaLabel,
+  "aria-label": ariaLabel,
+  isMaterial = false,
   ...rest
 } = Astro.props;
+
+// Heurística simple: si el nombre empieza con 'fa-' o 'fab ', es FontAwesome
+const isFA =
+  name.startsWith("fa-") || name.startsWith("fab ") || name.startsWith("fas ");
 ---
 
-<span
-  class:list={['material-symbols-outlined', className]}
-  aria-hidden={ariaLabel ? undefined : 'true'}
-  aria-label={ariaLabel}
-  {...rest}
->
-  {name}
-</span>
+{
+  isFA ? (
+    <i
+      class:list={[name, className]}
+      aria-hidden={ariaLabel ? undefined : "true"}
+      aria-label={ariaLabel}
+      {...rest}
+    />
+  ) : (
+    <span
+      class:list={["material-symbols-outlined", className]}
+      aria-hidden={ariaLabel ? undefined : "true"}
+      aria-label={ariaLabel}
+      {...rest}
+    >
+      {name}
+    </span>
+  )
+}
