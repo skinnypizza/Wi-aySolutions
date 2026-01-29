@@ -1,55 +1,72 @@
 ---
-import Icon from "../Icon.astro";
+/**
+ * ProblemSection.astro
+ * Section highlighting pain points Ignova solves
+ * Dark theme with gradient accents
+ */
 
 const problems = [
     {
-        title: "Sitios web que no venden",
+        icon: "⚡",
+        title: "Desarrollo de alta calidad",
         description:
-            "Muchos negocios tienen una web que se ve bien, pero no atrae clientes reales. Nosotros nos enfocamos en resultados.",
+            "No nos conformamos con lo básico. Cada línea de código está diseñada para escalar y durar.",
     },
     {
-        title: "Tecnología complicada",
+        icon: "🤝",
+        title: "Comunicación directa",
         description:
-            "Te hablamos sin tecnicismos innecesarios. Queremos que entiendas qué estás pagando y por qué lo necesitas.",
+            "Sin intermediarios ni jerga técnica. Hablamos tu idioma y estamos a un WhatsApp de distancia.",
     },
     {
-        title: "Falta de soporte local",
+        icon: "🇧🇴",
+        title: "Talento boliviano",
         description:
-            "Estamos en Bolivia. Entendemos tu mercado y estamos a un mensaje de WhatsApp de distancia para apoyarte.",
+            "Equipo joven y profesional. Entendemos el mercado local pero pensamos a escala global.",
     },
 ];
 ---
 
-<section class="py-16 md:py-24 bg-white dark:bg-background-dark">
+<section class="py-20 md:py-28 bg-ignova-dark relative overflow-hidden">
+    <!-- Subtle gradient accent -->
+    <div
+        class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-secondary"
+    >
+    </div>
+
     <div class="container mx-auto px-4">
+        <!-- Header -->
         <div class="max-w-3xl mx-auto text-center mb-16">
             <h2
-                class="text-3xl md:text-5xl font-bold font-display text-text-light dark:text-text-dark mb-6"
+                class="text-3xl md:text-5xl font-hoves font-bold text-ignova-light mb-6"
             >
-                ¿Tu negocio está listo para el siguiente nivel <span
-                    class="text-primary">pero tu web te detiene?</span
-                >
+                ¿Por qué elegir a <span
+                    class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+                    >Ignova</span
+                >?
             </h2>
-            <p
-                class="text-lg text-text-light/70 dark:text-text-dark/70 font-body"
-            >
-                Sabemos que en Bolivia el boca a boca es clave, pero una
-                presencia digital sólida es lo que te permite escalar y generar
-                confianza antes del primer contacto.
+            <p class="text-lg text-ignova-light/70 font-inter">
+                Somos el partner que tu proyecto necesita. Combinamos
+                experiencia técnica con visión de negocio para entregar
+                resultados reales.
             </p>
         </div>
 
+        <!-- Features Grid -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             {
-                problems.map((problem) => (
-                    <div class="p-8 rounded-2xl bg-background-light dark:bg-accent-dark border border-accent-light dark:border-primary/20 shadow-sm">
-                        <div class="size-12 rounded-full bg-primary/10 flex items-center justify-center mb-6 text-primary">
-                            <Icon name="warning" isMaterial class="text-2xl" />
+                problems.map((problem, index) => (
+                    <div
+                        class="relative p-8 rounded-2xl bg-black/30 border border-ignova-light/10 hover:border-primary/30 transition-all duration-300 animate-fade-in-up"
+                        style={`--anim-delay: ${index * 0.15}s;`}
+                    >
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center mb-6 text-3xl">
+                            {problem.icon}
                         </div>
-                        <h3 class="text-xl font-bold font-display mb-3 text-text-light dark:text-text-dark">
+                        <h3 class="text-xl font-hoves font-bold mb-3 text-ignova-light">
                             {problem.title}
                         </h3>
-                        <p class="text-text-light/70 dark:text-text-dark/70 font-body leading-relaxed">
+                        <p class="text-ignova-light/60 font-inter leading-relaxed">
                             {problem.description}
                         </p>
                     </div>
@@ -58,3 +75,11 @@ const problems = [
         </div>
     </div>
 </section>
+
+<style>
+    .animate-fade-in-up {
+        animation: fade-in-up 0.6s ease-out forwards;
+        animation-delay: var(--anim-delay, 0s);
+        opacity: 0;
+    }
+</style>

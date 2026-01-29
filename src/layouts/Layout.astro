@@ -1,48 +1,75 @@
 ---
+/**
+ * Layout.astro
+ * Main layout for Ignova website
+ * Includes custom fonts, meta tags, and global components
+ */
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import WhatsAppButton from "../components/WhatsAppButton.astro";
 import { ViewTransitions } from "astro:transitions";
-
-// Google Fonts del Moodboard
-import "@fontsource/manrope/400.css";
-import "@fontsource/manrope/500.css";
-import "@fontsource/source-sans-3/400.css";
-import "@fontsource/source-sans-3/500.css";
-import "@fontsource/source-sans-3/600.css";
-// NEW: Importación de Nunito Sans para el Logo/Marca (Peso 800)
-import "@fontsource/nunito-sans/800.css";
-
-// Iconos que usaremos (Google Material Symbols)
-import "material-symbols/outlined.css";
 
 interface Props {
 	title: string;
+	description?: string;
 }
 
-const { title } = Astro.props;
+const {
+	title,
+	description = "Ignova - Desarrollo de Software Innovador en Bolivia. Encendemos innovación en código.",
+} = Astro.props;
+
+const siteUrl = "https://ignova.dev"; // Update with actual domain
+const ogImage = "/ignova-logo.svg";
 ---
 
 <!doctype html>
-<html lang="es" class="light scroll-smooth">
+<html lang="es" class="dark scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
-		<meta
-			name="description"
-			content="Wiñay Tech - Soluciones que crecen contigo"
-		/>
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- Primary Meta Tags -->
 		<title>{title}</title>
-		<!-- Font Awesome para logos de marcas -->
+		<meta name="title" content={title} />
+		<meta name="description" content={description} />
+		<meta name="author" content="Ignova" />
+		<meta
+			name="keywords"
+			content="desarrollo de software, Bolivia, aplicaciones móviles, sitios web, automatización, Ignova"
+		/>
+
+		<!-- Favicon -->
+		<link rel="icon" type="image/svg+xml" href="/ignova-icon.svg" />
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={siteUrl} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={ogImage} />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={siteUrl} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={ogImage} />
+
+		<!-- Generator -->
+		<meta name="generator" content={Astro.generator} />
+
+		<!-- Font Awesome for icons -->
 		<link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
 		/>
+
+		<!-- View Transitions -->
 		<ViewTransitions />
 	</head>
 	<body
-		class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark font-body antialiased"
+		class="bg-ignova-dark text-ignova-light font-inter antialiased min-h-screen flex flex-col"
 	>
 		<Header />
 
@@ -52,35 +79,146 @@ const { title } = Astro.props;
 
 		<Footer />
 
+		<!-- Floating WhatsApp Button -->
+		<WhatsAppButton />
+
+		<!-- Alpine.js for interactivity -->
 		<script type="module" src="../scripts/alpine.js"></script>
-
-		<style is:global>
-			/* Estilos globales de las fuentes */
-			h1,
-			h2,
-			h3,
-			h4,
-			h5,
-			h6,
-			.font-display {
-				font-family: "Source Sans 3", sans-serif;
-			}
-			/* NEW: Clase específica para el Logo/Marca (Logotipo/Marca: Nunito Sans 800 ) */
-			.font-brand {
-				font-family: "Nunito Sans", sans-serif;
-			}
-
-			/* Animación de entrada global (para usar en todos los componentes) */
-			@keyframes fade-in-up {
-				from {
-					opacity: 0;
-					transform: translateY(20px);
-				}
-				to {
-					opacity: 1;
-					transform: translateY(0);
-				}
-			}
-		</style>
 	</body>
 </html>
+
+<style is:global>
+	/* ================================================
+	   Custom Font Definitions
+	   Fonts loaded from /docs/fonts/
+	   ================================================ */
+
+	/* TT Hoves Pro - Headings & Logo */
+	@font-face {
+		font-family: "TT Hoves Pro";
+		src: url("/docs/fonts/TT Hoves Pro Trial Bold.ttf") format("truetype");
+		font-weight: 700;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: "TT Hoves Pro";
+		src: url("/docs/fonts/TT Hoves Pro Trial Black.ttf") format("truetype");
+		font-weight: 900;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: "TT Hoves Pro";
+		src: url("/docs/fonts/TT Hoves Pro Trial Regular.ttf")
+			format("truetype");
+		font-weight: 400;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	/* Ailerion - Display/Taglines */
+	@font-face {
+		font-family: "Ailerion";
+		src: url("/docs/fonts/aileron-bold.otf") format("opentype");
+		font-weight: 700;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	/* Codec Pro - Naive.uno branding */
+	@font-face {
+		font-family: "Codec Pro";
+		src: url("/docs/fonts/codec-pro-regular.ttf") format("truetype");
+		font-weight: 400;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	/* Inter - Body text (Google Fonts fallback) */
+	@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+	/* ================================================
+	   Global Styles
+	   ================================================ */
+
+	/* Headings use TT Hoves */
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	.font-hoves {
+		font-family: "TT Hoves Pro", sans-serif;
+	}
+
+	/* Display text uses Ailerion */
+	.font-ailerion {
+		font-family: "Ailerion", sans-serif;
+	}
+
+	/* Naive.uno text uses Codec Pro */
+	.font-codec {
+		font-family: "Codec Pro", sans-serif;
+	}
+
+	/* Body uses Inter */
+	body,
+	.font-inter {
+		font-family: "Inter", system-ui, sans-serif;
+	}
+
+	/* ================================================
+	   Animations
+	   ================================================ */
+
+	@keyframes fade-in-up {
+		from {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	.animate-fade-in-up {
+		animation: fade-in-up 0.6s ease-out forwards;
+		animation-delay: var(--anim-delay, 0s);
+		opacity: 0;
+	}
+
+	/* ================================================
+	   Selection Colors
+	   ================================================ */
+
+	::selection {
+		background-color: #ff7f2f;
+		color: #1e1e1e;
+	}
+
+	/* ================================================
+	   Scrollbar Styling
+	   ================================================ */
+
+	::-webkit-scrollbar {
+		width: 8px;
+	}
+
+	::-webkit-scrollbar-track {
+		background: #1e1e1e;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: linear-gradient(135deg, #ff7f2f, #ad0034);
+		border-radius: 4px;
+	}
+
+	::-webkit-scrollbar-thumb:hover {
+		background: linear-gradient(135deg, #e66a1a, #8a002a);
+	}
+</style>

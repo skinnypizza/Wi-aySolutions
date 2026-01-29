@@ -5,24 +5,33 @@ export default {
 	theme: {
 		extend: {
 			colors: {
+				// Ignova Brand Colors
 				primary: {
-					DEFAULT: '#007B88',
-					dark: '#006670', // Un tono más oscuro para hover/focus
+					DEFAULT: '#ff7f2f', // Energy/CTAs - Orange
+					dark: '#e66a1a',
 				},
-				'accent-light': '#EEEEEE', // Blanco humo
-				'accent-soft': '#393646', // Azul grisáceo
-				'complementary-mint': '#A3F7BF',
-				'complementary-gold': '#C5A158',
-				// Alias para el sistema de diseño
-				'background-light': '#EEEEEE',
-				'background-dark': '#222831',
-				'text-light': '#222831',
-				'text-dark': '#EEEEEE',
+				secondary: {
+					DEFAULT: '#ad0034', // Depth - Deep Red
+					dark: '#8a002a',
+				},
+				ignova: {
+					dark: '#1e1e1e',      // Dark backgrounds
+					light: '#e4e2dd',     // Light text on dark
+					gray: '#757575',      // Muted text
+					naive: '#e3e3e1',     // Naive.uno text color
+				},
+				// Gradient colors for easy access
+				'gradient-start': '#ff7f2f',
+				'gradient-end': '#ad0034',
 			},
 			fontFamily: {
-				display: ['Source Sans Pro', 'sans-serif'], // Para títulos (headings)
-				body: ['Manrope', 'sans-serif'], // Para texto de cuerpo
-				brand: ['Nunito Sans', 'sans-serif'], // Para el logotipo o marca
+				hoves: ['TT Hoves Pro', 'sans-serif'],       // Headings/Logo
+				ailerion: ['Ailerion', 'sans-serif'],        // Display/Taglines
+				codec: ['Codec Pro', 'sans-serif'],          // Naive.uno branding
+				inter: ['Inter', 'system-ui', 'sans-serif'], // Body text
+			},
+			backgroundImage: {
+				'ignova-gradient': 'linear-gradient(135deg, #ff7f2f 0%, #ad0034 100%)',
 			},
 			keyframes: {
 				'fade-in-up': {
@@ -35,9 +44,27 @@ export default {
 						transform: 'translateY(0)',
 					},
 				},
+				'pulse-glow': {
+					'0%, 100%': {
+						boxShadow: '0 0 20px rgba(255, 127, 47, 0.4)',
+					},
+					'50%': {
+						boxShadow: '0 0 30px rgba(255, 127, 47, 0.6)',
+					},
+				},
+				'float': {
+					'0%, 100%': {
+						transform: 'translateY(0px)',
+					},
+					'50%': {
+						transform: 'translateY(-10px)',
+					},
+				},
 			},
 			animation: {
 				'fade-in-up': 'fade-in-up 0.6s ease-out forwards',
+				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+				'float': 'float 3s ease-in-out infinite',
 			},
 		},
 	},

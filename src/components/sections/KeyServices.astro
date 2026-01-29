@@ -1,58 +1,76 @@
 ---
-import Icon from "../Icon.astro";
-import Button from "../Button.astro";
+/**
+ * KeyServices.astro
+ * Core services section showcasing Ignova's main offerings
+ * Features: 3-column grid with animated cards
+ */
 
 const keySolutions = [
 	{
-		icon: "flash_on",
-		title: "Presencia Web Rápida",
+		icon: "🚀",
+		title: "Desarrollo Web",
 		description:
-			"Lanza tu idea o negocio con una landing page profesional en tiempo récord. Ideal para empezar a captar clientes.",
+			"Páginas web profesionales para empresas. Desde landing pages hasta plataformas corporativas completas.",
 	},
 	{
-		icon: "business_center",
-		title: "Imagen Corporativa Sólida",
+		icon: "📱",
+		title: "Apps Móviles",
 		description:
-			"Fortalece tu marca con una web multi-página que genera confianza y muestra todo tu potencial.",
+			"Aplicaciones nativas e híbridas para iOS y Android. Desde MVPs hasta productos tipo Uber.",
 	},
 	{
-		icon: "trending_up",
-		title: "Optimización y Crecimiento",
+		icon: "⚙️",
+		title: "Automatizaciones",
 		description:
-			"Aparece en Google, mide tus resultados y convierte visitantes en clientes con nuestras herramientas pro.",
+			"Integraciones, APIs, y automatización de procesos. Conectamos tus sistemas y eliminamos trabajo manual.",
+	},
+	{
+		icon: "🔧",
+		title: "Soluciones a Medida",
+		description:
+			"Software personalizado para desafíos complejos. Manejamos proyectos de cualquier escala.",
 	},
 ];
 ---
 
-<section class="py-20 md:py-28 bg-accent-light dark:bg-accent-soft/20">
+<section class="py-20 md:py-28 bg-ignova-dark/50">
 	<div class="container mx-auto px-4">
+		<!-- Header -->
 		<div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-			<h2
-				class="text-3xl md:text-4xl font-display font-bold text-text-light dark:text-text-dark"
+			<span
+				class="inline-block px-4 py-1 bg-primary/10 rounded-full text-primary font-semibold text-sm uppercase tracking-wider mb-4"
 			>
-				Soluciones pensadas para tu negocio
+				Servicios
+			</span>
+			<h2
+				class="text-3xl md:text-4xl font-hoves font-bold text-ignova-light"
+			>
+				Soluciones de software para <span
+					class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+					>cada desafío</span
+				>
 			</h2>
-			<p class="mt-4 text-lg text-text-light/80 dark:text-text-dark/80">
-				No importa si estás empezando o buscas expandirte. Tenemos un
-				punto de partida claro para cada necesidad.
+			<p class="mt-4 text-lg text-ignova-light/70 font-inter">
+				No importa el tamaño o complejidad. Tenemos la experiencia para
+				llevar tu proyecto al siguiente nivel.
 			</p>
 		</div>
 
-		<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+		<!-- Services Grid -->
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 			{
 				keySolutions.map((solution, index) => (
 					<div
-						class="bg-background-light dark:bg-background-dark p-8 rounded-xl shadow-lg border border-transparent hover:border-primary transition-all duration-300 transform hover:-translate-y-2 animate-fade-in-up"
-						style={`--anim-delay: ${index * 0.15}s;`}
+						class="group bg-ignova-dark border border-ignova-light/10 p-6 rounded-2xl hover:border-primary/50 transition-all duration-300 hover:-translate-y-2 animate-fade-in-up"
+						style={`--anim-delay: ${index * 0.1}s;`}
 					>
-						<Icon
-							name={solution.icon}
-							class="text-4xl text-primary mb-4"
-						/>
-						<h3 class="text-xl font-display font-semibold mb-2 text-text-light dark:text-text-dark">
+						<div class="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+							{solution.icon}
+						</div>
+						<h3 class="text-xl font-hoves font-bold mb-3 text-ignova-light group-hover:text-primary transition-colors">
 							{solution.title}
 						</h3>
-						<p class="font-body text-text-light/70 dark:text-text-dark/70">
+						<p class="font-inter text-ignova-light/60 text-sm leading-relaxed">
 							{solution.description}
 						</p>
 					</div>
@@ -60,13 +78,27 @@ const keySolutions = [
 			}
 		</div>
 
-		<div
-			class="text-center mt-16 animate-fade-in-up"
-			style="--anim-delay: 0.6s;"
-		>
-			<Button href="/services" variant="outline" size="lg">
-				Ver Todos los Servicios y Packs
-			</Button>
+		<!-- CTA -->
+		<div class="text-center mt-12">
+			<a
+				href="/services"
+				class="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-ignova-light/20 text-ignova-light font-semibold hover:border-primary hover:text-primary transition-all duration-300"
+			>
+				Ver todos los servicios
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="w-4 h-4"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+				</svg>
+			</a>
 		</div>
 	</div>
 </section>

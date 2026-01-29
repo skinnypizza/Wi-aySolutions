@@ -1,17 +1,21 @@
 ---
+/**
+ * index.astro
+ * Ignova Homepage
+ * Showcases services, value proposition, and WhatsApp contact
+ */
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/sections/Hero.astro";
 import ProblemSection from "../components/sections/ProblemSection.astro";
 import KeyServices from "../components/sections/KeyServices.astro";
+import NaiveSection from "../components/NaiveSection.astro";
 import FinalCTA from "../components/sections/FinalCTA.astro";
-
-// Puedes añadir aquí más secciones, como "About.astro" o "Automation.astro"
-// import AboutSection from '../components/sections/About.astro';
 ---
 
-<Layout title="Wiñay Tech - Potenciamos tu negocio en Bolivia">
+<Layout title="Ignova - Desarrollo de Software Innovador en Bolivia">
   <Hero />
-  <ProblemSection />
   <KeyServices />
+  <ProblemSection />
+  <NaiveSection />
   <FinalCTA />
 </Layout>
