@@ -77,9 +77,42 @@ const extraServices = [
     description: "Conectamos tus sistemas existentes",
   },
 ];
+const servicesSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  itemListElement: mainServices.map((service, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    item: {
+      "@type": "Service",
+      name: service.title,
+      description: service.description,
+      provider: {
+        "@type": "Organization",
+        "@id": "https://ignova.uno/#organization",
+      },
+      areaServed: "BO",
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: service.tag,
+        itemListElement: service.features.map((feature) => ({
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: feature,
+          },
+        })),
+      },
+    },
+  })),
+};
 ---
 
-<Layout title="Servicios | Ignova">
+<Layout
+  title="Servicios de Desarrollo de Software en Bolivia | Ignova"
+  description="Descubre nuestros servicios de desarrollo web, apps móviles y software a medida. Soluciones tecnológicas profesionales diseñadas para escalar tu negocio."
+  schema={servicesSchema}
+>
   <!-- Hero -->
   <section
     class="min-h-[60vh] flex items-center justify-center relative overflow-hidden bg-ignova-dark"

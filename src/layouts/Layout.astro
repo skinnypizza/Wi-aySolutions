@@ -12,15 +12,18 @@ import { ViewTransitions } from "astro:transitions";
 interface Props {
 	title: string;
 	description?: string;
+	schema?: object;
 }
 
 const {
 	title,
 	description = "Ignova - Desarrollo de Software Innovador en Bolivia. Encendemos innovación en código.",
+	schema,
 } = Astro.props;
 
-const siteUrl = "https://ignova.dev"; // Update with actual domain
+const siteUrl = "https://ignova.uno";
 const ogImage = "/ignova-logo.svg";
+const canonicalURL = new URL(Astro.url.pathname, siteUrl);
 ---
 
 <!doctype html>
@@ -28,6 +31,7 @@ const ogImage = "/ignova-logo.svg";
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="canonical" href={canonicalURL} />
 
 		<!-- Primary Meta Tags -->
 		<title>{title}</title>
@@ -67,6 +71,16 @@ const ogImage = "/ignova-logo.svg";
 
 		<!-- View Transitions -->
 		<ViewTransitions />
+
+		<!-- Schema Markup -->
+		{
+			schema && (
+				<script
+					type="application/ld+json"
+					set:html={JSON.stringify(schema)}
+				/>
+			)
+		}
 	</head>
 	<body
 		class="bg-ignova-dark text-ignova-light font-inter antialiased min-h-screen flex flex-col"

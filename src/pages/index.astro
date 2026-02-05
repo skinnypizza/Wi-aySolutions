@@ -10,9 +10,60 @@ import ProblemSection from "../components/sections/ProblemSection.astro";
 import KeyServices from "../components/sections/KeyServices.astro";
 import NaiveSection from "../components/NaiveSection.astro";
 import FinalCTA from "../components/sections/FinalCTA.astro";
+
+const homeSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ignova.uno/#organization",
+      name: "Ignova",
+      url: "https://ignova.uno",
+      logo: "https://ignova.uno/ignova-logo.svg",
+      sameAs: ["https://wa.me/59171531944"],
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: "+591-71531944",
+        contactType: "customer service",
+        areaServed: "BO",
+        availableLanguage: "Spanish",
+      },
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://ignova.uno/#localbusiness",
+      name: "Ignova - Desarrollo de Software",
+      url: "https://ignova.uno",
+      image: "https://ignova.uno/ignova-logo.svg",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "La Paz",
+        addressCountry: "BO",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: "-16.5000",
+        longitude: "-68.1500",
+      },
+      priceRange: "$$",
+      telephone: "+591-71531944",
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ignova.uno/#website",
+      url: "https://ignova.uno",
+      name: "Ignova",
+      publisher: { "@id": "https://ignova.uno/#organization" },
+    },
+  ],
+};
 ---
 
-<Layout title="Ignova">
+<Layout
+  title="Ignova - Desarrollo de Software y Automatización en Bolivia"
+  description="Líderes en desarrollo de software innovador en Bolivia. Especialistas en aplicaciones móviles, web, automatización e integraciones a medida."
+  schema={homeSchema}
+>
   <Hero />
   <KeyServices />
   <ProblemSection />
